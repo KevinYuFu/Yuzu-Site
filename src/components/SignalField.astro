@@ -1,0 +1,8 @@
+<canvas class="signal-field" aria-hidden="true"></canvas>
+<script>
+  import { mountSignalField } from '../scripts/signal-field';
+
+  for (const canvas of document.querySelectorAll<HTMLCanvasElement>('.signal-field')) {
+    mountSignalField(canvas);
+  }
+</script>

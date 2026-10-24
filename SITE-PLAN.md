@@ -12,9 +12,36 @@ people can understand who he is and reach out to hire or collaborate.
 3. **Rivals** — the event he runs; promote it.
 4. **DJ / Artist** — the creative/performance side; a visual centerpiece page.
 
-The homepage is a **2×2 grid launcher**: four full-screen quadrants (one per identity)
+The homepage was a **2×2 grid launcher**: four full-screen quadrants (one per identity)
 that react on hover and click through to that identity's own page. A "YUZU" wordmark
-sits at the center (swapped for the logo later). Each identity gets its own dedicated page.
+sat at the center (swapped for the logo later). Each identity gets its own dedicated page.
+
+## Update — slice 3, neo-Tokyo redesign
+The 2×2 grid assumed four quadrants. The site now has five identities plus About and
+Contact, so the home page is a full-viewport **signal index**: glitch YUZU wordmark and
+a channel list, not a grid.
+
+Identities, in registry order:
+1. **Software Engineer** — fruit-named apps; Tangerine is a tab manager.
+2. **Music Producer (Yuzu)** — hyperbass, hyperpop vocals, bass music, J-pop chords.
+3. **Mixing & Mastering** — new section.
+4. **Teacher** — JSTDRMN Academy DJ Bootcamp, piano lessons.
+5. **Rivals** — the event Yu runs.
+
+About and Contact are utility pages in the same registry. `/music` redirects to
+`/teacher`. `/artist` redirects to `/producer`.
+
+Architecture: `src/core/compose.ts` is the composition root. It loads every
+`src/modules/<id>/module.ts`. A module exports its metadata, route, blocks, and view.
+Pages do not import sections by hand. Adding a section means adding one module.
+
+Visual language is the saved datamosh / neo-Tokyo title loops: `#121212` field,
+`#9A00FF` violet, cream `#F8F0D0`, red `#FF2B56` and cyan `#01FAFF` fringes, Unbounded
++ Dela Gothic One + Noto Sans JP + Space Mono, HUD chrome (信号異常, 未来信号, scanlines).
+Motion is CSS plus one small canvas, and it shuts off under `prefers-reduced-motion`.
+
+`content/*.md` is still unfilled. Pages use `[placeholder]` for anything that is not
+a supplied fact. Do not invent bio, credits, clients, release names, or prices.
 
 ## Design direction
 Modern, interactive, alive — not a static brochure.
@@ -49,8 +76,8 @@ Modern, interactive, alive — not a static brochure.
 
 ## What Claude (me) will do
 - [x] Slice 1: planning docs + content templates
-- [x] Slice 2: scaffold Astro + Tailwind + git; 2×2 grid landing + 4 stub pages ← we are here
-- [ ] Slice 3: polish the grid interactions (animation) + build out each identity page
+- [x] Slice 2: scaffold Astro + Tailwind + git; 2×2 grid landing + 4 stub pages
+- [x] Slice 3: neo-Tokyo redesign — signal-index home, five identities + about/contact, plugin registry
 - [ ] Slice 4+: fill pages with real content, slice by slice
 - [ ] Launch: connect GitHub → Cloudflare → domain
 
@@ -62,6 +89,7 @@ Modern, interactive, alive — not a static brochure.
 ## Open questions / parking lot
 - Animation library final pick (GSAP vs Framer Motion) — decide at build time.
   (Grid hover is pure CSS; a library is only needed for richer page animation.)
-- ~~Own page vs homepage sections?~~ **Decided:** each identity is its own page,
-  reached via the 2×2 grid launcher.
+- ~~Own page vs homepage sections?~~ **Decided:** each identity is its own page.
+  The 2×2 launcher was replaced in slice 3 by a signal index, because five identities
+  do not fit four quadrants. The registry still gives each one a route.
 - Domain name ideas.

@@ -1,0 +1,61 @@
+---
+import GlitchTitle from './GlitchTitle.astro';
+import type { SectionModule } from '../core/types';
+
+interface Props {
+  identities: SectionModule[];
+  utilities: SectionModule[];
+}
+
+const { identities, utilities } = Astro.props;
+const count = String(identities.length).padStart(2, '0');
+---
+
+<main id="content" class="home">
+  <div class="home-brand">
+    <p class="home-kicker" lang="ja">ユズ</p>
+    <h1 class="home-word">
+      <span class="sr-only">Yuzu</span>
+      <GlitchTitle text="YUZU" />
+    </h1>
+    <p class="home-name">Yu Fu</p>
+    <p class="home-tag"><span class="ph">[placeholder: one-line tagline]</span></p>
+    <p class="home-sys">
+      <span class="chip" lang="ja">信号異常</span>
+      <span class="sys">SIG.ERR 0x9A00FF // YUZU.SYS</span>
+    </p>
+  </div>
+
+  <nav class="channels" aria-label="Identities">
+    <p class="channels-label">
+      <span class="sys">{count} SIG</span>
+      <span class="sys">FR 061</span>
+    </p>
+    <ol>
+      {
+        identities.map((section) => (
+          <li>
+            <a class="channel" href={section.route}>
+              <span class="channel-index">{section.index}</span>
+              <span class="channel-copy">
+                <span class="channel-title">{section.navLabel}</span>
+                <span class="channel-kana" lang="ja">{section.kana}</span>
+                <span class="channel-blurb">{section.homeBlurb}</span>
+              </span>
+              <span class="channel-go" aria-hidden="true">OPEN</span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </nav>
+
+  <footer class="home-foot">
+    <span class="barcode" aria-hidden="true"></span>
+    <span class="ruler" aria-hidden="true"><span class="playhead"></span></span>
+    <span class="foot-links">
+      {utilities.map((section) => <a href={section.route}>{section.navLabel}</a>)}
+    </span>
+    <span class="foot-jp" lang="ja">データ破損 · 同期</span>
+  </footer>
+</main>

@@ -19,10 +19,11 @@ four identities: Software Engineer, Music Teacher, Rivals (event), DJ/Artist.
 - Explain changes like a reviewer's guide; teach as we go.
 
 ## Current status
-Slice 2 complete: Astro + Tailwind scaffolded, git initialized. Homepage is a 2×2 grid
-launcher (`src/pages/index.astro`) with hover states + click-through to four stub pages.
-Next (slice 3): polish grid animation + build out each identity page. Kevin still needs
-to fill `content/`, create GitHub + Cloudflare accounts, and pick a domain.
+Slice 3 in review: neo-Tokyo glitch redesign on top of the Astro + Tailwind scaffold.
+Home is a signal index (not the old 2×2 grid). Sections are plugins under `src/modules/`,
+composed by `src/core/compose.ts`: software, producer, mixing, teacher, rivals, about,
+contact. `content/` is still unfilled — pages show `[placeholder]`s. Still to do: real
+copy, GitHub + Cloudflare accounts, and a domain. Do not deploy from this slice.
 
 ## Run it
 - Node is pinned via `.node-version` (24.18.0); fnm auto-switches. Astro needs Node ≥22.12.
@@ -31,5 +32,7 @@ to fill `content/`, create GitHub + Cloudflare accounts, and pick a domain.
 ## Layout
 - `SITE-PLAN.md` — vision, decisions, roadmap, checklist (the master doc).
 - `content/*.md` — fill-in templates for site content.
-- `src/pages/` — routes: `index` (grid), `software`, `music`, `rivals`, `artist`.
-- `src/layouts/Base.astro` — shared `<head>` + Tailwind import.
+- `src/core/compose.ts` — composition root. Loads `src/modules/*/module.ts`.
+- `src/modules/<id>/` — one folder per section (metadata, route, view).
+- `src/pages/` — `index` (home) and `[slug]` (every registered section). `/music` → `/teacher`, `/artist` → `/producer`.
+- `src/layouts/Base.astro` — shared `<head>`, HUD chrome, Tailwind import.
