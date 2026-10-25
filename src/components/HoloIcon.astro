@@ -1,0 +1,79 @@
+---
+import type { TileIcon } from '../core/types';
+
+interface Props {
+  name: TileIcon;
+}
+
+const { name } = Astro.props;
+---
+
+<svg class="holo-icon" viewBox="0 0 80 80" aria-hidden="true">
+  {
+    name === 'apps' && (
+      <g fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="10" y="10" width="24" height="24" />
+        <rect x="46" y="10" width="24" height="24" />
+        <rect x="10" y="46" width="24" height="24" />
+        <rect x="46" y="46" width="24" height="24" />
+      </g>
+    )
+  }
+  {
+    name === 'wave' && (
+      <path
+        d="M6 42 H16 L24 22 L34 58 L44 30 L52 48 L60 36 H74"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      />
+    )
+  }
+  {
+    name === 'fader' && (
+      <g fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M20 12 V68 M40 12 V68 M60 12 V68" />
+        <rect x="13" y="28" width="14" height="8" />
+        <rect x="33" y="44" width="14" height="8" />
+        <rect x="53" y="22" width="14" height="8" />
+      </g>
+    )
+  }
+  {
+    name === 'keys' && (
+      <g fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="10" y="16" width="60" height="48" />
+        <path d="M22 16 V40 M34 16 V40 M46 16 V40 M58 16 V40" />
+        <path d="M28 16 V32 M40 16 V32 M52 16 V32" />
+      </g>
+    )
+  }
+  {
+    name === 'mark' && (
+      <g fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M14 40 L40 14 L66 40 L40 66 Z" />
+        <path d="M28 40 H52" />
+      </g>
+    )
+  }
+  {
+    name === 'id' && (
+      <g fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="12" y="16" width="56" height="48" />
+        <circle cx="32" cy="36" r="8" />
+        <path d="M20 56 C22 46 42 46 44 56" />
+        <path d="M50 34 H62 M50 44 H60" />
+      </g>
+    )
+  }
+  {
+    name === 'ping' && (
+      <g fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="40" cy="40" r="6" />
+        <path d="M28 28 a17 17 0 0 1 24 0 M22 22 a26 26 0 0 1 36 0 M52 52 a17 17 0 0 1 -24 0 M58 58 a26 26 0 0 1 -36 0" />
+      </g>
+    )
+  }
+</svg>

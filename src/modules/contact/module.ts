@@ -15,6 +15,19 @@ export const section = defineSection({
   description: 'Contact Yu Fu (Yuzu). Public details are not filled in yet.',
   lede: 'Public contact details are not filled in yet.',
   homeBlurb: 'Reach Yu Fu',
+  tile: {
+    size: 'small',
+    col: 11,
+    row: 6,
+    colSpan: 2,
+    rowSpan: 3,
+    code: 'MOD-07',
+    subtitle: 'Reach Yu Fu',
+    status: 'public contact',
+    statusPlaceholder: true,
+    watermark: '07',
+    icon: 'ping',
+  },
   source: 'content/contact.md',
   blocks: [
     {

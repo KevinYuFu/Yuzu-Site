@@ -18,8 +18,8 @@ sat at the center (swapped for the logo later). Each identity gets its own dedic
 
 ## Update — slice 3, neo-Tokyo redesign
 The 2×2 grid assumed four quadrants. The site now has five identities plus About and
-Contact, so the home page is a full-viewport **signal index**: glitch YUZU wordmark and
-a channel list, not a grid.
+Contact. The home page is an Arknights-style cluster of holographic menu tiles
+(one per registry module). Tile size and grid position live on each module.
 
 Identities, in registry order:
 1. **Software Engineer** — fruit-named apps; Tangerine is a tab manager.

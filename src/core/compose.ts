@@ -1,5 +1,6 @@
 import DefaultView from '../components/SectionView.astro';
 import type { SectionModule, SectionViewComponent } from './types';
+import { HOME_GRID } from './types';
 
 /**
  * Composition root.
@@ -54,6 +55,7 @@ export function composeSite(): Site {
   }
 
   const sections = entries.map((entry) => entry.section);
+  assertHomeTiles(sections);
   const views = new Map(entries.map((entry) => [entry.section.slug, entry.View]));
 
   site = {
@@ -68,4 +70,23 @@ export function composeSite(): Site {
   };
 
   return site;
+}
+
+/** Home tiles share one 12×8 grid. Overlaps fail the build instead of stacking by accident. */
+function assertHomeTiles(sections: SectionModule[]) {
+  const occupied = new Map<string, string>();
+  for (const section of sections) {
+    const { col, row, colSpan, rowSpan } = section.tile;
+    for (let y = row; y < row + rowSpan; y++) {
+      for (let x = col; x < col + colSpan; x++) {
+        if (x < 1 || y < 1 || x > HOME_GRID.columns || y > HOME_GRID.rows) {
+          throw new Error(`${section.id} tile cell ${x},${y} is outside the home grid`);
+        }
+        const key = `${x},${y}`;
+        const prior = occupied.get(key);
+        if (prior) throw new Error(`Home tiles overlap at ${key}: ${prior} and ${section.id}`);
+        occupied.set(key, section.id);
+      }
+    }
+  }
 }

@@ -15,6 +15,18 @@ export const section = defineSection({
   description: 'Mixing and mastering by Yu Fu.',
   lede: 'Mixing and mastering. Services, credits, and rates are not filled in yet.',
   homeBlurb: 'Mixing & mastering',
+  tile: {
+    size: 'mid',
+    col: 8,
+    row: 4,
+    colSpan: 5,
+    rowSpan: 2,
+    code: 'MOD-03',
+    subtitle: 'Mastering',
+    status: 'Mixing & mastering',
+    watermark: '03',
+    icon: 'fader',
+  },
   source: 'no content file yet',
   blocks: [
     {

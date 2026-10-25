@@ -15,6 +15,18 @@ export const section = defineSection({
   description: 'Rivals, an event run by Yu Fu.',
   lede: 'An event run by Yu Fu. What it is, when it happens, and how to join are not filled in yet.',
   homeBlurb: 'Event',
+  tile: {
+    size: 'mid',
+    col: 5,
+    row: 6,
+    colSpan: 4,
+    rowSpan: 3,
+    code: 'MOD-05',
+    subtitle: 'Event',
+    status: 'Run by Yu Fu',
+    watermark: '05',
+    icon: 'mark',
+  },
   source: 'content/rivals.md',
   blocks: [
     {

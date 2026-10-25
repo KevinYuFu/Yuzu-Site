@@ -15,6 +15,18 @@ export const section = defineSection({
   description: 'About Yu Fu, artist name Yuzu.',
   lede: 'Yu Fu. Artist name Yuzu.',
   homeBlurb: 'Yu Fu',
+  tile: {
+    size: 'small',
+    col: 9,
+    row: 6,
+    colSpan: 2,
+    rowSpan: 3,
+    code: 'MOD-06',
+    subtitle: 'Yu Fu',
+    status: 'Artist name Yuzu',
+    watermark: '06',
+    icon: 'id',
+  },
   source: 'content/bio.md',
   blocks: [
     {

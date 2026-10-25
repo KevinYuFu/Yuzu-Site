@@ -15,6 +15,18 @@ export const section = defineSection({
   description: 'Teaching: JSTDRMN Academy DJ Bootcamp and piano lessons.',
   lede: 'JSTDRMN Academy DJ Bootcamp. Piano lessons.',
   homeBlurb: 'DJ Bootcamp · piano',
+  tile: {
+    size: 'mid',
+    col: 1,
+    row: 6,
+    colSpan: 4,
+    rowSpan: 3,
+    code: 'MOD-04',
+    subtitle: 'DJ Bootcamp · piano',
+    status: 'JSTDRMN Academy',
+    watermark: '04',
+    icon: 'keys',
+  },
   source: 'content/music-teaching.md',
   blocks: [
     {

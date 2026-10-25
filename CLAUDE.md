@@ -20,7 +20,7 @@ four identities: Software Engineer, Music Teacher, Rivals (event), DJ/Artist.
 
 ## Current status
 Slice 3 in review: neo-Tokyo glitch redesign on top of the Astro + Tailwind scaffold.
-Home is a signal index (not the old 2×2 grid). Sections are plugins under `src/modules/`,
+Home is a holographic tile menu (Arknights-style cluster). Sections are plugins under `src/modules/`,
 composed by `src/core/compose.ts`: software, producer, mixing, teacher, rivals, about,
 contact. `content/` is still unfilled — pages show `[placeholder]`s. Still to do: real
 copy, GitHub + Cloudflare accounts, and a domain. Do not deploy from this slice.

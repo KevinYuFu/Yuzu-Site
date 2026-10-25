@@ -1,6 +1,34 @@
 /** Plain data for one registered section. Kept serializable so pages can prerender it. */
 export type Lane = 'identity' | 'utility';
 
+export type TileSize = 'hero' | 'mid' | 'small';
+
+export type TileIcon = 'apps' | 'wave' | 'fader' | 'keys' | 'mark' | 'id' | 'ping';
+
+/**
+ * Home-menu placement. The launcher is a 12×8 grid; each module owns its cell
+ * so adding a section is still one file.
+ */
+export interface HomeTile {
+  size: TileSize;
+  col: number;
+  row: number;
+  colSpan: number;
+  rowSpan: number;
+  /** Small HUD code, e.g. MOD-01. */
+  code: string;
+  /** Line under the big title. */
+  subtitle: string;
+  /** Bottom status line. Factual, or a placeholder when statusPlaceholder is set. */
+  status: string;
+  statusPlaceholder?: boolean;
+  /** Giant faint mark inside the glass. */
+  watermark: string;
+  icon: TileIcon;
+}
+
+export const HOME_GRID = { columns: 12, rows: 8 } as const;
+
 export interface TextValue {
   text: string;
   /** Rendered as `[placeholder: text]` until real copy exists. */
@@ -46,6 +74,8 @@ export interface SectionModule {
   lede: string;
   /** One line in the home channel list. */
   homeBlurb: string;
+  /** Floating menu tile on the home page. */
+  tile: HomeTile;
   /** Where the real copy should be written. */
   source: string;
   blocks: Block[];

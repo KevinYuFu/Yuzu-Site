@@ -15,6 +15,18 @@ export const section = defineSection({
   description: 'Software by Yu Fu. Fruit-named apps, including Tangerine, a tab manager.',
   lede: 'Fruit-named apps. Tangerine is a tab manager. Everything else on this page is still open.',
   homeBlurb: 'Fruit-named apps · Tangerine',
+  tile: {
+    size: 'hero',
+    col: 1,
+    row: 1,
+    colSpan: 7,
+    rowSpan: 5,
+    code: 'MOD-01',
+    subtitle: 'Fruit-named apps',
+    status: 'Tangerine · tab manager',
+    watermark: '01',
+    icon: 'apps',
+  },
   source: 'content/software-engineering.md',
   blocks: [
     {
