@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import HomeStage from '../components/HomeStage.astro';
+import HubBackdrop from '../components/HubBackdrop.astro';
 import { composeSite } from '../core/compose';
 
 const site = composeSite();
@@ -11,5 +12,6 @@ const site = composeSite();
   title="Yuzu — Yu Fu"
   description="Yu Fu (Yuzu): software, music production, mixing and mastering, teaching, and the Rivals event."
 >
+  <HubBackdrop />
   <HomeStage sections={site.sections} />
 </Base>

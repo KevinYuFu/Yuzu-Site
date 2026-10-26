@@ -78,6 +78,7 @@ Modern, interactive, alive — not a static brochure.
 - [x] Slice 1: planning docs + content templates
 - [x] Slice 2: scaffold Astro + Tailwind + git; 2×2 grid landing + 4 stub pages
 - [x] Slice 3: neo-Tokyo redesign — signal-index home, five identities + about/contact, plugin registry
+- [ ] Software page: each project card links to /software/projects/<slug>. Showcase pages are stubs; build them out later with real content from Yu.
 - [ ] Slice 4+: fill pages with real content, slice by slice
 - [ ] Launch: connect GitHub → Cloudflare → domain
 

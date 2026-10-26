@@ -1,0 +1,86 @@
+---
+/* Software module view: resume as holo/HUD panels over the Main Hub backdrop. */
+import HubBackdrop from '../../components/HubBackdrop.astro';
+import type { SectionViewProps } from '../../core/types';
+import { resume } from './resume.data';
+import SectionHeading from './SectionHeading.astro';
+import './resume.css';
+const { section } = Astro.props as SectionViewProps;
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+<HubBackdrop />
+<main id="content" class="rv">
+  <section class="rv-panel rv-head">
+    <span class="rv-br" aria-hidden="true"></span><span class="rv-scan" aria-hidden="true"></span>
+    <div class="rv-top"><span class="rv-code">{section.tile.code} // RESUME</span><span class="rv-kana" lang="ja">{section.kana}</span></div>
+    <h1 class="rv-name"><span class="rv-accent">{resume.name.accent}</span> {resume.name.rest}</h1>
+    <p class="rv-title">{resume.title}</p>
+    <ul class="rv-links">
+      {resume.links.map((l) => <li><span class="rv-lbl">{l.label}</span>{l.href ? <a href={l.href}>{l.text}</a> : <span>{l.text}</span>}</li>)}
+    </ul>
+    {resume.pdf
+      ? <a class="rv-btn" href={resume.pdf} download>Download PDF ↓</a>
+      : <button class="rv-btn" disabled>[placeholder: Download PDF]</button>}
+    <span class="rv-wm" aria-hidden="true">01</span>
+  </section>
+
+  <div class="rv-cols">
+    <section class="rv-block rv-exp">
+      <SectionHeading code="MOD-01.A" title="Experience" kana="けいれき" />
+      <ol class="rv-list">
+        {resume.experience.map((x, i) => (
+          <li class="rv-panel rv-card">
+            <span class="rv-br" aria-hidden="true"></span>
+            <div class="rv-top"><span class="rv-code">EXP-{pad(resume.experience.length - i)}</span><span class="rv-time">{x.time}</span></div>
+            <h3 class="rv-co">{x.company}</h3>
+            <p class="rv-pos">{x.position}</p>
+            <ul class="rv-pts">{x.points.map((p) => <li>{p}</li>)}</ul>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <aside class="rv-side">
+      <section class="rv-block">
+        <SectionHeading code="MOD-01.B" title="Skills" kana="スキル" />
+        <div class="rv-panel rv-pad">
+        <span class="rv-br" aria-hidden="true"></span>
+        <p class="rv-sub">Languages &amp; frameworks</p>
+        <ul class="rv-chips">{resume.skills.languages.map((s) => <li>{s}</li>)}</ul>
+        <p class="rv-sub">Tools</p>
+        <ul class="rv-chips rv-chips-alt">{resume.skills.tools.map((s) => <li>{s}</li>)}</ul>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <!-- Projects slot: detailed showcases will plug in here later (e.g. a projects/ module). -->
+  <section class="rv-block rv-proj" id="projects">
+    <SectionHeading code="MOD-01.C" title="Projects" kana="プロジェクト" />
+    <div class="rv-grid">
+      {resume.projects.map((p, i) => (
+        <a class="rv-panel rv-card rv-link" href={`/software/projects/${p.slug}`} aria-label={`${p.name}: view project`}>
+          <span class="rv-br" aria-hidden="true"></span>
+          <div class="rv-top"><span class="rv-code">PRJ-{pad(i + 1)}</span><span class="rv-time">{p.time}</span></div>
+          <h3 class="rv-co">{p.name}</h3>
+          <ul class="rv-pts">{p.points.map((t) => <li>{t}</li>)}</ul>
+          <span class="rv-view" aria-hidden="true">VIEW → <span lang="ja">詳細</span></span>
+        </a>
+      ))}
+      <article class="rv-panel rv-card rv-soon">
+        <span class="rv-br" aria-hidden="true"></span>
+        <div class="rv-top"><span class="rv-code">PRJ-++</span></div>
+        <p class="rv-co">[more projects coming soon]</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="rv-block rv-eduwrap">
+    <SectionHeading code="MOD-01.D" title="Education" kana="がくれき" />
+    <div class="rv-panel rv-pad">
+    <span class="rv-br" aria-hidden="true"></span>
+    <h3 class="rv-co">{resume.education.school}</h3>
+    <ul class="rv-edu">{resume.education.lines.map((l) => <li>{l}</li>)}</ul>
+    </div>
+  </section>
+</main>

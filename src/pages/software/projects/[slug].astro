@@ -1,0 +1,28 @@
+---
+/* Project showcase stub. Real showcase content from Yu comes later; only name + dates from resume data here. */
+import Base from '../../../layouts/Base.astro';
+import HubBackdrop from '../../../components/HubBackdrop.astro';
+import { resume, type ResumeProject } from '../../../modules/software/resume.data';
+import '../../../modules/software/resume.css';
+
+export function getStaticPaths() {
+  return resume.projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+interface Props { project: ResumeProject }
+const { project } = Astro.props;
+const n = resume.projects.indexOf(project) + 1;
+---
+<Base title={`${project.name} — Yuzu`} description={`${project.name} project showcase (coming soon).`}>
+  <HubBackdrop />
+  <main id="content" class="rv">
+    <section class="rv-panel rv-head">
+      <span class="rv-br" aria-hidden="true"></span><span class="rv-scan" aria-hidden="true"></span>
+      <div class="rv-top"><span class="rv-code">PRJ-{String(n).padStart(2, '0')} // PROJECT</span><span class="rv-kana" lang="ja">プロジェクト</span></div>
+      <h1 class="rv-name">{project.name}</h1>
+      <p class="rv-title">{project.time}</p>
+      <p class="rv-stubtxt">[project showcase coming soon]</p>
+      <a class="rv-back" href="/software">← BACK TO SOFTWARE</a>
+      <span class="rv-wm" aria-hidden="true">{String(n).padStart(2, '0')}</span>
+    </section>
+  </main>
+</Base>
