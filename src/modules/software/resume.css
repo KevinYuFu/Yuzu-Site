@@ -49,7 +49,6 @@ body:has(.rv) .site-header{position:relative;z-index:5}
 .rv-soon{display:flex;flex-direction:column;justify-content:center;border-style:dashed;background:rgba(6,10,16,.7)}
 .rv-soon .rv-co{color:var(--c-dim);font-size:1.1rem}
 @media (max-width:860px){.rv-cols{grid-template-columns:1fr}.rv{padding:1rem 1rem 3rem}.rv-head{padding:1.5rem}.rv-wm{font-size:8rem}.rv-h{font-size:1.5rem}}
-/* TODO(animation): Yu will describe the approach later. */
 
 /* Phone: more air. Desktop untouched. */
 @media (max-width:640px){
