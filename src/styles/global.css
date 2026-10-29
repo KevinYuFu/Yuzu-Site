@@ -168,10 +168,10 @@ body {
   pointer-events: none;
   background: repeating-linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.035) 0 1px,
+    rgba(255, 255, 255, 0.018) 0 1px,
     transparent 1px 3px
   );
-  opacity: 0.55;
+  opacity: 0.35;
 }
 
 .scanlines::after {
@@ -180,7 +180,7 @@ body {
   left: 0;
   right: 0;
   height: 22%;
-  background: linear-gradient(transparent, rgba(154, 0, 255, 0.09), transparent);
+  background: linear-gradient(transparent, rgba(154, 0, 255, 0.035), transparent);
   transform: translateY(-30vh);
 }
 
@@ -287,7 +287,7 @@ body {
   letter-spacing: 0.12em;
   font-size: 1.05rem;
   color: #fff;
-  text-shadow: -2px 0 #ff2b56, 2px 0 #01faff;
+  text-shadow: 0 0 12px rgba(1, 250, 255, 0.35);
 }
 
 .brand-kana {
@@ -410,60 +410,27 @@ body {
   padding-inline: 0.06em;
 }
 
-.mosh-face,
-.mosh-ink,
-.mosh-slice {
+.mosh-face {
+  position: relative;
+  z-index: 1;
   font: inherit;
   letter-spacing: inherit;
   line-height: inherit;
   text-transform: inherit;
+  color: #f4f6ff;
+  text-shadow: 0 0 22px rgba(1, 250, 255, 0.22);
 }
 
-.mosh-face {
-  position: relative;
-  z-index: 1;
-  color: #fff;
-  text-shadow:
-    -3px 0 rgba(255, 43, 86, 0.95),
-    3px 0 rgba(1, 250, 255, 0.95);
-}
-
-.mosh-ink,
-.mosh-slice {
+/* Single thin cyan accent under the title. */
+.mosh::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.mosh-ink {
-  z-index: 2;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0 0.22em,
-    #9a00ff 0.22em 0.3em,
-    transparent 0.3em 0.62em,
-    #ff2b56 0.62em 0.68em,
-    transparent 0.68em 1.05em,
-    #01faff 1.05em 1.1em,
-    transparent 1.1em 1.45em
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.mosh-slice {
-  z-index: 3;
-  color: #fff;
-  opacity: 0;
-  mix-blend-mode: lighten;
-  clip-path: inset(
-    calc(var(--i) * 12.5%)
-    -30%
-    calc((7 - var(--i)) * 12.5%)
-    -30%
-  );
+  left: 0.06em;
+  bottom: -0.14em;
+  width: 1.4em;
+  height: 3px;
+  background: rgba(1, 250, 255, 0.7);
+  box-shadow: 0 0 10px rgba(1, 250, 255, 0.35);
 }
 
 /* ---- home ---- */
@@ -485,7 +452,7 @@ body {
   font-size: clamp(1.3rem, 2vw, 1.8rem);
   letter-spacing: 0.18em;
   color: #e0b0f8;
-  text-shadow: -2px 0 #ff2b56, 2px 0 #01faff;
+  text-shadow: 0 0 12px rgba(1, 250, 255, 0.35);
 }
 
 .home-brand,
@@ -978,18 +945,13 @@ body {
   html { scroll-behavior: smooth; }
 
   .scanlines::after {
-    animation: sweep 8.5s linear infinite;
-  }
-
-  .mosh-slice {
-    animation: tear 3.4s steps(1, end) infinite;
-    animation-delay: calc(var(--i) * 0.16s);
+    animation: sweep 24s linear infinite;
   }
 
   .beats i {
     background: transparent;
     border-color: #e0b0f8;
-    animation: beat 1.875s steps(1, end) infinite;
+    animation: beat 1.875s ease-in-out infinite;
   }
 
   .beats i:nth-child(1) { animation-delay: 0s; }
@@ -1021,7 +983,7 @@ body {
   }
 
   .channel:hover .channel-title {
-    text-shadow: -2px 0 #ff2b56, 2px 0 #01faff;
+    text-shadow: 0 0 12px rgba(1, 250, 255, 0.35);
   }
 
   .channel:hover .channel-go {
@@ -1039,20 +1001,11 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .scanlines::after { display: none; }
-  .mosh-slice { display: none; }
-}
-
-@keyframes tear {
-  0%, 70%, 100% { opacity: 0; transform: translateX(0); }
-  8% { opacity: 1; transform: translateX(-12px); color: #ff2b56; }
-  16% { opacity: 1; transform: translateX(14px); color: #01faff; }
-  26% { opacity: 0.85; transform: translateX(-6px); color: #fff; }
-  36% { opacity: 0; transform: translateX(0); }
 }
 
 @keyframes beat {
-  0%, 24% { background: #9a00ff; border-color: #9a00ff; }
-  25%, 100% { background: transparent; border-color: #e0b0f8; }
+  0%, 20% { background: #9a00ff; border-color: #9a00ff; }
+  45%, 100% { background: transparent; border-color: #e0b0f8; }
 }
 
 @keyframes sweep {

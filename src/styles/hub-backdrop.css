@@ -28,7 +28,4 @@
 @keyframes hb-spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.hb *{animation:none!important}}
 
-/* Hub cluster size: shrink the whole cluster's box (layout/proportions unchanged), centred. */
-.is-home .holo-stage{--hub-scale:.78}
-.is-home .holo-cluster{width:calc(100% * var(--hub-scale));height:calc(100% * var(--hub-scale));place-self:center}
 

@@ -1,5 +1,6 @@
 import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
+import { bio } from './bio.data';
 
 export const section = defineSection({
   id: 'about',
@@ -36,13 +37,13 @@ export const section = defineSection({
         { label: 'Display name', value: text('Yu Fu') },
         { label: 'Artist name', value: text('Yuzu') },
         { label: 'Tagline', value: gap('one-line tagline') },
-        { label: 'Based', value: gap('city or region') },
+        { label: 'Based', value: text('Toronto') },
       ],
     },
     {
       kind: 'copy',
       heading: 'Who',
-      body: gap('2–4 short paragraphs'),
+      body: text(bio.full),
     },
     {
       kind: 'copy',

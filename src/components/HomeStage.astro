@@ -1,6 +1,8 @@
 ---
 import '../styles/holo.css';
 import HoloIcon from './HoloIcon.astro';
+import HubProfile from './hub/HubProfile.astro';
+import { hubProfile } from './hub/profile.data';
 import type { SectionModule } from '../core/types';
 
 interface Props {
@@ -23,6 +25,8 @@ const { sections } = Astro.props;
 
   <div class="holo-stage">
     <h1 class="sr-only">Yuzu</h1>
+    <HubProfile profile={hubProfile} />
+    <div class="holo-menu">
     <nav class="holo-cluster" aria-label="Sections">
       {
         sections.map((section, index) => (
@@ -59,6 +63,7 @@ const { sections } = Astro.props;
         ))
       }
     </nav>
+    </div>
   </div>
 </main>
 

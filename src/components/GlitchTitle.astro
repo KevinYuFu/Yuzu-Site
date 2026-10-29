@@ -5,13 +5,8 @@ interface Props {
 }
 
 const { text, class: className } = Astro.props;
-const slices = [0, 1, 2, 3, 4, 5, 6, 7];
 ---
 
 <span class:list={['mosh', className]} data-text={text} aria-hidden="true">
   <span class="mosh-face">{text}</span>
-  <span class="mosh-ink">{text}</span>
-  {slices.map((i) => (
-    <span class="mosh-slice" style={`--i:${i}`}>{text}</span>
-  ))}
 </span>
