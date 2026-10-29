@@ -1,0 +1,31 @@
+/* Main Hub backdrop (option B). Palette via custom properties. */
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@500;900&display=swap");
+.hb{--hb-bg:#07060d;--hb-line:rgba(200,210,255,.32);--hb-violet:#8b5cff;--hb-pink:#ff3fa4;--hb-cyan:#3fe6ff;--hb-txt:#cfd6ff;
+  position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--hb-bg);pointer-events:none;font-family:"Space Mono",ui-monospace,monospace}
+/* let the backdrop show through the hub (tiles untouched) */
+.is-home .holo-home{background:transparent}
+.is-home .holo-home::before{opacity:.5}
+.hb-grid{position:absolute;inset:0;background:linear-gradient(rgba(140,150,255,.05) 1px,transparent 1px) 0 0/60px 60px,linear-gradient(90deg,rgba(140,150,255,.05) 1px,transparent 1px) 0 0/60px 60px;
+  mask:radial-gradient(ellipse at center,#000 30%,transparent 80%)}
+.hb-aura{position:absolute;inset:0;background:radial-gradient(40% 50% at 88% 15%,rgba(139,92,255,.3),transparent 70%),radial-gradient(40% 50% at 8% 92%,rgba(255,63,164,.24),transparent 70%)}
+.hb-big{position:absolute;writing-mode:vertical-rl;font:400 330px/1 "Dela Gothic One","Arial Black",sans-serif;color:transparent;-webkit-text-stroke:1.5px rgba(190,170,255,.34)}
+.hb-l{left:1.5vw;top:50%;transform:translateY(-50%);font-size:min(25vh,15vw)}
+.hb-r{right:2.2vw;top:52%;transform:translateY(-50%);font-size:min(19vh,10vw);font-family:"Dela Gothic One","Noto Sans JP",sans-serif;-webkit-text-stroke-color:rgba(255,63,164,.4)}
+.hb-slash{position:absolute;height:3px;transform:rotate(-28deg);transform-origin:left}
+.hb-s1{left:62%;top:96%;width:34vw;background:linear-gradient(90deg,transparent,var(--hb-pink))}
+.hb-s2{left:68%;top:99%;width:26vw;height:1px;background:var(--hb-cyan);opacity:.6}
+.hb-s3{left:-2%;top:93%;width:22vw;height:12px;background:repeating-linear-gradient(90deg,var(--hb-violet) 0 6px,transparent 6px 12px);opacity:.45}
+.hb-hud,.hb-ring{position:absolute}.hb-hud{inset:0;width:100%;height:100%}
+.hb svg path,.hb svg circle{stroke:var(--hb-line);stroke-width:1}
+.hb-br path{stroke:var(--hb-txt)!important;stroke-width:2!important}.hb .hb-faint{stroke:rgba(200,210,255,.12)}.hb .hb-dot{fill:var(--hb-pink);stroke:none}
+.hb-ring1{width:30vw;right:-9vw;top:-11vw;animation:hb-spin 60s linear infinite}
+.hb-ring2{width:20vw;left:-6vw;bottom:-7vw;animation:hb-spin 80s linear infinite reverse}
+.hb-lbl{position:absolute;font-size:10px;letter-spacing:.18em;color:var(--hb-txt);opacity:.7}.hb-lbl span{color:var(--hb-cyan)}
+.hb-t3{left:70px;bottom:6px}
+.hb-barcode{position:absolute;right:70px;bottom:6px;width:150px;height:12px;opacity:.6;
+  background:repeating-linear-gradient(90deg,var(--hb-txt) 0 2px,transparent 2px 4px,var(--hb-txt) 4px 5px,transparent 5px 9px,var(--hb-txt) 9px 12px,transparent 12px 14px)}
+.hb-vk{position:absolute;right:.6vw;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font:500 12px "Noto Sans JP",sans-serif;letter-spacing:.6em;color:var(--hb-pink);opacity:.75}
+@keyframes hb-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.hb *{animation:none!important}}
+
+

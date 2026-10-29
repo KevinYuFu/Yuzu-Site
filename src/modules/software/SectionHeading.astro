@@ -1,0 +1,6 @@
+---
+/* Shared section heading used above every resume panel group. */
+interface Props { code: string; title: string; kana: string }
+const { code, title, kana } = Astro.props;
+---
+<h2 class="rv-h"><span class="rv-code">{code}</span>{title}<span class="rv-kana" lang="ja">{kana}</span></h2>

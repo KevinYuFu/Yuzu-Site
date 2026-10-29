@@ -1,0 +1,128 @@
+---
+import GlitchTitle from './GlitchTitle.astro';
+import TextBit from './TextBit.astro';
+import type { Block, SectionModule, SectionViewProps } from '../core/types';
+
+const { section, sections, prev, next } = Astro.props as SectionViewProps;
+const showSub = section.title.toLowerCase() !== section.mark.toLowerCase();
+
+function registryItems(block: Extract<Block, { kind: 'registry' }>) {
+  return sections.filter((item) => block.lanes.includes(item.lane) && item.slug !== section.slug);
+}
+---
+
+<main id="content" class="section-page">
+  <header class="hero">
+    <div class="hero-meta">
+      <span class="index-badge">{section.index}</span>
+      <span class="chip" lang="ja">{section.kana}</span>
+      <span class="sys">{section.signal}</span>
+    </div>
+    <div class="hero-lockup">
+      <p class="hero-kana" lang="ja">{section.kana}</p>
+      <div>
+        <h1>
+          <span class="sr-only">{section.title}</span>
+          <GlitchTitle text={section.mark} />
+        </h1>
+        {showSub && <p class="hero-sub">{section.title}</p>}
+      </div>
+    </div>
+    <p class="lede">{section.lede}</p>
+  </header>
+
+  <div class="blocks">
+    {
+      section.blocks.map((block, index) =>
+        block.kind === 'note' ? (
+          <div class="note-wrap reveal" style={`--d:${index}`}>
+            <p class="note">
+              <TextBit value={block.body} />
+            </p>
+          </div>
+        ) : (
+        <section class="panel reveal" style={`--d:${index}`}>
+          <header class="panel-head">
+            <p class="panel-kicker">{section.index} / {String(index + 1).padStart(2, '0')}</p>
+            <h2>{block.heading}</h2>
+          </header>
+          <div class="panel-body">
+            {block.kind === 'copy' && (
+              <p class="copy">
+                <TextBit value={block.body} />
+              </p>
+            )}
+            {block.kind === 'fields' && (
+              <dl class="fields">
+                {block.items.map((item) => (
+                  <div class="field">
+                    <dt>{item.label}</dt>
+                    <dd>
+                      <TextBit value={item.value} />
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+            {block.kind === 'stack' && (
+              <div class="stack">
+                {block.items.map((item) => (
+                  <article class:list={['card', { 'is-gap': item.title.placeholder }]}>
+                    <h3>
+                      <TextBit value={item.title} />
+                    </h3>
+                    <dl class="card-rows">
+                      {item.rows.map((row) => (
+                        <div class="field">
+                          <dt>{row.label}</dt>
+                          <dd>
+                            <TextBit value={row.value} />
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </article>
+                ))}
+              </div>
+            )}
+            {block.kind === 'registry' && (
+              <div class="registry">
+                {registryItems(block).map((item) => (
+                  <a class="registry-link" href={item.route}>
+                    <span class="index-badge">{item.index}</span>
+                    <span>{item.navLabel}</span>
+                    <span class="registry-kana" lang="ja">{item.kana}</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+        )
+      )
+    }
+  </div>
+
+  <footer class="section-foot">
+    <span class="barcode" aria-hidden="true"></span>
+    <p class="source"><span>SRC</span>{section.source}</p>
+    <span class="foot-jp" lang="ja">同期</span>
+  </footer>
+
+  <nav class="pager" aria-label="Adjacent sections">
+    {
+      prev && (
+        <a class="pager-prev" href={prev.route}>
+          ← {prev.index} {prev.navLabel}
+        </a>
+      )
+    }
+    {
+      next && (
+        <a class="pager-next" href={next.route}>
+          {next.index} {next.navLabel} →
+        </a>
+      )
+    }
+  </nav>
+</main>

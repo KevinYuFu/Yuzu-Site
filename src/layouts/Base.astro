@@ -1,15 +1,22 @@
 ---
 import '../styles/global.css';
+import HudFrame from '../components/HudFrame.astro';
+import SignalField from '../components/SignalField.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  /** Home draws its own stage. Inner pages keep the HUD shell. */
+  shell?: 'page' | 'home';
 }
 
 const {
-  title = 'Yuzu',
-  description = "Kevin ‘Yuzu’ — Software Engineer, Music Teacher, Rivals, Artist.",
+  title = 'Yuzu — Yu Fu',
+  description = 'Yu Fu (Yuzu): software, music production, mixing and mastering, teaching, and the Rivals event.',
+  shell = 'page',
 } = Astro.props;
+const home = shell === 'home';
 ---
 
 <!doctype html>
@@ -18,10 +25,22 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#121212" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{title}</title>
   </head>
-  <body class="bg-black text-white antialiased">
+  <body class={home ? 'is-home' : undefined}>
+    {!home && <SignalField />}
+    {!home && <div class="vignette" aria-hidden="true"></div>}
+    {!home && <HudFrame />}
+    {!home && <div class="scanlines" aria-hidden="true"></div>}
+    <a class="skip" href="#content">Skip to content</a>
+    {!home && <SiteHeader />}
     <slot />
+    <script>
+      import { mountReveal } from '../scripts/reveal';
+      mountReveal();
+    </script>
   </body>
 </html>

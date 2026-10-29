@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import GlitchTitle from '../components/GlitchTitle.astro';
+---
+
+<Base title="Signal lost — Yuzu" description="That page is not on the Yuzu site.">
+  <main id="content" class="section-page">
+    <header class="hero">
+      <div class="hero-meta">
+        <span class="index-badge">404</span>
+        <span class="chip" lang="ja">エラー</span>
+        <span class="sys">SIG.LOST // 0x9A00FF</span>
+      </div>
+      <h1>
+        <span class="sr-only">Signal lost</span>
+        <GlitchTitle text="LOST" />
+      </h1>
+      <p class="lede">That route is not registered.</p>
+      <a class="text-link" href="/">Return to Yuzu</a>
+    </header>
+  </main>
+</Base>

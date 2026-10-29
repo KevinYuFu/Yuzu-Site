@@ -1,0 +1,156 @@
+---
+import type { HubProfile } from './profile.data';
+
+interface Props {
+  profile: HubProfile;
+}
+
+const { profile } = Astro.props;
+const { photo } = profile;
+const srcset = photo.sources.map((s) => `${s.src} ${s.width}w`).join(', ');
+const fallback = photo.sources[photo.sources.length - 1].src;
+---
+
+<div class="hub-photo-col">
+  <span class="hub-photo-ring" aria-hidden="true"></span>
+  <img
+    class="hub-photo"
+    src={fallback}
+    srcset={srcset}
+    sizes="(max-width: 800px) 60vw, 23vw"
+    width={photo.width}
+    height={photo.height}
+    alt={photo.alt}
+    fetchpriority="high"
+  />
+</div>
+
+<div class="hub-bio">
+  <a class="holo-slot hub-bio-slot" data-size="mid" href={profile.bioHref}>
+    <span class="holo-bob">
+      <span class="holo-face">
+        <span class="holo-brackets" aria-hidden="true"></span>
+        <span class="holo-scan" aria-hidden="true"></span>
+        <span class="holo-top">
+          <span class="holo-code">ID // YU-FU</span>
+          <span class="holo-kana" lang="ja">プロフィール</span>
+        </span>
+        <span class="holo-copy">
+          <span class="holo-title">
+            {profile.name}
+            <span class="hub-bio-kana" lang="ja">{profile.kana}</span>
+          </span>
+          <span class="hub-bio-text">{profile.excerpt}</span>
+        </span>
+        <span class="holo-foot">READ FULL BIO <span aria-hidden="true">→</span></span>
+      </span>
+    </span>
+  </a>
+</div>
+
+<style>
+  .hub-photo-col {
+    grid-area: photo;
+    align-self: stretch;
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  /* Thin halo ring and a soft floor glow behind the portrait. */
+  .hub-photo-ring {
+    position: absolute;
+    left: 50%;
+    top: 14%;
+    width: 78%;
+    aspect-ratio: 1;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: 1px solid rgba(126, 240, 255, 0.28);
+    box-shadow:
+      0 0 0 10px rgba(126, 240, 255, 0.04),
+      inset 0 0 60px rgba(120, 90, 255, 0.18);
+    pointer-events: none;
+  }
+
+  .hub-photo-col::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 0;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(126, 240, 255, 0.35), transparent 70%);
+    pointer-events: none;
+  }
+
+  .hub-photo {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+    filter: drop-shadow(0 0 24px rgba(110, 200, 255, 0.18));
+  }
+
+  /* Same width, tilt and tile design as the menu below. */
+  .hub-bio {
+    grid-area: bio;
+    justify-self: end;
+    align-self: end;
+    width: min(100%, 93vh);
+    min-width: 0;
+    container-type: inline-size;
+  }
+
+  .hub-bio-slot {
+    display: block;
+    transform: rotateX(6deg) rotateY(-8deg) scale(0.94);
+    transform-origin: 46% 42%;
+  }
+
+  .hub-bio .holo-copy {
+    margin: 0.6rem 0;
+    padding-right: 0;
+  }
+
+  .hub-bio-kana {
+    margin-left: 0.6rem;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 0.4em;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: rgba(210, 244, 255, 0.78);
+  }
+
+  .hub-bio-text {
+    display: block;
+    margin-top: 0.5rem;
+    max-width: 70ch;
+    font-family: "Space Mono", monospace;
+    font-size: clamp(0.72rem, 1.7cqw, 0.85rem);
+    line-height: 1.5;
+    color: #c5f3ff;
+  }
+
+  @media (max-width: 800px) {
+    .hub-photo-col {
+      height: 56vh;
+      max-width: 100%;
+    }
+
+    .hub-bio {
+      width: auto;
+    }
+
+    .hub-bio-slot {
+      transform: none;
+    }
+  }
+</style>
