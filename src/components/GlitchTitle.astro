@@ -1,0 +1,12 @@
+---
+interface Props {
+  text: string;
+  class?: string;
+}
+
+const { text, class: className } = Astro.props;
+---
+
+<span class:list={['mosh', className]} data-text={text} aria-hidden="true">
+  <span class="mosh-face">{text}</span>
+</span>

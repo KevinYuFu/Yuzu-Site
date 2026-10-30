@@ -1,0 +1,45 @@
+/* Teacher landing. Tiles use .holo-face from holo.css; hover here is calm (no flicker). */
+.tl { --tl-c: #5dfff6; --tl-p: #ff3ec8; --tl-v: #9a00ff; }
+.tl-intro { max-width: 40rem; margin-top: 2.5rem; }
+.tl-kicker { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tl-c); margin: 0 0 0.9rem; }
+.tl-kicker span { font-family: var(--font-jp); color: var(--color-lilac); }
+.tl-approach { font-family: var(--font-jp); font-size: 1.1rem; line-height: 1.8; color: #e9f6ff; margin: 0 0 2rem; }
+.tl-note { margin: 0.8rem 0 0; font-size: 0.75rem; color: rgba(220, 240, 255, 0.6); }
+.tl-block { position: relative; z-index: 2; margin-top: clamp(5rem, 10vw, 8rem); }
+.tl-h2 { font-family: var(--font-kana); font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.4rem); color: #fff; margin: 0 0 2.2rem; }
+.tl-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.4rem; }
+.tl-tile { grid-column: span 2; min-height: 15rem; }
+.tl-tile:nth-child(4) { grid-column: 2 / span 2; }
+.tl-tile .holo-face { display: flex; text-decoration: none; height: 100%; padding: 1.1rem 1.2rem 0.9rem; transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
+.tl-tile .holo-icon { width: 34%; max-width: 110px; bottom: 22%; }
+.tl-tile .holo-copy { padding-right: 10%; margin: 1.2rem 0; }
+.tl-tile .holo-title { font-family: var(--font-kana); font-weight: 400; font-size: 1.35rem; line-height: 1.15; text-transform: none; margin: 0; }
+.tl-fact { color: var(--tl-c); }
+.tl-foot { display: flex; justify-content: flex-end; }
+.tl-view { color: #fff; text-decoration: none; letter-spacing: 0.14em; padding: 0.2rem 0; border-bottom: 1px solid var(--tl-p); }
+.tl-tile:hover .tl-view, .tl-tile:focus-within .tl-view { color: var(--tl-p); }
+.tl-tile:hover .holo-face, .tl-tile:focus-within .holo-face { border-color: rgba(230, 252, 255, 0.9); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45), 0 0 28px rgba(154, 0, 255, 0.3); transform: translateY(-3px); }
+.tl .pager { margin-top: 6rem; }
+@media (prefers-reduced-motion: reduce) { .tl-tile .holo-face { display: flex; text-decoration: none; transition: none; transform: none !important; } }
+@media (max-width: 900px) {
+  .tl-grid { grid-template-columns: repeat(2, 1fr); }
+  .tl-tile, .tl-tile:nth-child(4) { grid-column: auto; }
+  .tl-tile:nth-child(5) { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .tl-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .tl-tile { min-height: 12rem; }
+  .tl-intro { margin-top: 2rem; }
+  .tl-block { margin-top: 5rem; }
+}
+.tl-classes { margin-top: clamp(3.5rem, 7vw, 5rem); }
+.tl-tile .holo-face:focus-visible { outline: 2px solid #7ef0ff; outline-offset: 3px; }
+/* Class detail pages */
+.tl-detail .tl-intro { margin-top: 1.5rem; }
+.tl-fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin: 0; }
+.tl-field { padding: 1.4rem; border-top: 1px solid rgba(176, 230, 255, 0.4); background: rgba(10, 12, 20, 0.45); }
+.tl-field dt { font-family: var(--font-kana); font-size: 1.05rem; color: #fff; margin-bottom: 0.7rem; }
+.tl-field dd { margin: 0; font-size: 0.95rem; line-height: 1.7; color: #cfe6f2; }
+.tl-back { display: inline-block; margin-top: 4rem; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em; color: var(--tl-c); text-decoration: none; }
+.tl-back:hover { color: var(--tl-p); }
+@media (max-width: 900px) { .tl-fields { grid-template-columns: 1fr; } }

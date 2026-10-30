@@ -1,0 +1,75 @@
+---
+import '../styles/holo.css';
+import HoloIcon from './HoloIcon.astro';
+import HubProfile from './hub/HubProfile.astro';
+import { hubProfile } from './hub/profile.data';
+import type { SectionModule } from '../core/types';
+
+interface Props {
+  sections: SectionModule[];
+}
+
+const { sections } = Astro.props;
+---
+
+<main id="content" class="holo-home">
+  <header class="holo-bar">
+    <p class="holo-brand">
+      <span class="sr-only">Yuzu. Yu Fu.</span>
+      <span aria-hidden="true">YUZU</span>
+    </p>
+    <p class="holo-who">Yu Fu</p>
+    <p class="holo-tag"><span class="ph">[placeholder: one-line tagline]</span></p>
+    <p class="holo-bar-code" aria-hidden="true">SIG // HOME</p>
+  </header>
+
+  <div class="holo-stage">
+    <h1 class="sr-only">Yuzu</h1>
+    <HubProfile profile={hubProfile} />
+    <div class="holo-menu">
+    <nav class="holo-cluster" aria-label="Sections">
+      {
+        sections.map((section, index) => (
+          <a
+            class="holo-slot"
+            data-size={section.tile.size}
+            href={section.route}
+            style={`--col:${section.tile.col};--row:${section.tile.row};--cs:${section.tile.colSpan};--rs:${section.tile.rowSpan};--i:${index}`}
+          >
+            <span class="holo-bob">
+              <span class="holo-face">
+                <span class="holo-brackets" aria-hidden="true"></span>
+                <span class="holo-scan" aria-hidden="true"></span>
+                <span class="holo-watermark" aria-hidden="true">{section.tile.watermark}</span>
+                <HoloIcon name={section.tile.icon} />
+                <span class="holo-top">
+                  <span class="holo-code">{section.tile.code}</span>
+                  <span class="holo-kana" lang="ja">{section.kana}</span>
+                </span>
+                <span class="holo-copy">
+                  <span class="holo-title">{section.navLabel}</span>
+                  <span class="holo-sub">{section.tile.subtitle}</span>
+                </span>
+                <span class="holo-foot">
+                  {section.tile.statusPlaceholder ? (
+                    <span class="ph">[placeholder: {section.tile.status}]</span>
+                  ) : (
+                    <span>{section.tile.status}</span>
+                  )}
+                </span>
+              </span>
+            </span>
+          </a>
+        ))
+      }
+    </nav>
+    </div>
+  </div>
+</main>
+
+<script>
+  import { mountHoloParallax } from '../scripts/holo-parallax';
+
+  const stage = document.querySelector<HTMLElement>('.holo-stage');
+  if (stage) mountHoloParallax(stage);
+</script>

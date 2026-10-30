@@ -1,0 +1,17 @@
+---
+import type { TextValue } from '../core/types';
+
+interface Props {
+  value: TextValue;
+}
+
+const { value } = Astro.props;
+---
+
+{
+  value.placeholder ? (
+    <span class="ph">[placeholder: {value.text}]</span>
+  ) : (
+    <span>{value.text}</span>
+  )
+}

@@ -1,0 +1,44 @@
+---
+/* Teacher class detail. Generated from teacher.data.ts; only known facts are shown, the rest are placeholders. */
+import Base from '../../layouts/Base.astro';
+import HubBackdrop from '../../components/HubBackdrop.astro';
+import GlitchTitle from '../../components/GlitchTitle.astro';
+import { teacher, type TeachTile } from '../../modules/teacher/teacher.data';
+import '../../modules/teacher/teacher.css';
+
+export function getStaticPaths() {
+  return teacher.tiles.map((tile) => ({ params: { id: tile.id }, props: { tile } }));
+}
+interface Props { tile: TeachTile }
+const { tile } = Astro.props;
+---
+<Base title={`${tile.title} — Teacher — Yuzu`} description={`${tile.title} classes with Yu Fu.`}>
+  <HubBackdrop />
+  <main id="content" class="section-page tl tl-detail">
+    <header class="hero tl-hero">
+      <div class="hero-meta">
+        <span class="index-badge">{tile.code}</span>
+        <span class="chip" lang="ja">{tile.kana}</span>
+        <span class="sys">SIG.EDU // CLASS</span>
+      </div>
+      <div class="hero-lockup">
+        <h1><span class="sr-only">{tile.title}</span><GlitchTitle text={tile.title.toUpperCase()} /></h1>
+      </div>
+      <div class="tl-intro">
+        <p class="tl-kicker"><span lang="ja">{tile.kana}</span> / {tile.title}</p>
+        {tile.fact && <p class="tl-approach">{tile.fact}</p>}
+      </div>
+    </header>
+
+    <section class="tl-block tl-classes" aria-label="Class details">
+      <dl class="tl-fields">
+        <div class="tl-field"><dt>What I teach</dt><dd><span class="ph">[placeholder: topics]</span></dd></div>
+        <div class="tl-field"><dt>Who it's for</dt><dd><span class="ph">[placeholder: who it's for / levels]</span></dd></div>
+        <div class="tl-field"><dt>Format</dt><dd><span class="ph">[placeholder: in person or online]</span></dd></div>
+      </dl>
+    </section>
+
+
+    <a class="tl-back" href="/teacher">← BACK TO TEACHER</a>
+  </main>
+</Base>

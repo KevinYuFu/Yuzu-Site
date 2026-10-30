@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { composeSite } from '../core/compose';
+import type { SectionModule } from '../core/types';
+
+export function getStaticPaths() {
+  return composeSite().sections.map((section) => ({
+    params: { slug: section.slug },
+    props: { section },
+  }));
+}
+
+interface Props {
+  section: SectionModule;
+}
+
+const { section } = Astro.props;
+const site = composeSite();
+const View = site.viewFor(section.slug);
+const index = site.sections.findIndex((item) => item.slug === section.slug);
+const prev = site.sections[index - 1];
+const next = site.sections[index + 1];
+---
+
+<Base title={`${section.title} — Yuzu`} description={section.description}>
+  <View section={section} sections={site.sections} prev={prev} next={next} />
+</Base>

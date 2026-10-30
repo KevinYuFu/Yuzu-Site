@@ -1,0 +1,63 @@
+---
+/* Teacher module view: a landing page. Tiles reuse the hub's holo-face styles. */
+import HubBackdrop from '../../components/HubBackdrop.astro';
+import GlitchTitle from '../../components/GlitchTitle.astro';
+import HoloIcon from '../../components/HoloIcon.astro';
+import type { SectionViewProps } from '../../core/types';
+import { teacher } from './teacher.data';
+import '../../styles/holo.css';
+import './teacher.css';
+const { section, prev, next } = Astro.props as SectionViewProps;
+---
+<HubBackdrop />
+<main id="content" class="section-page tl">
+  <header class="hero tl-hero">
+    <div class="hero-meta">
+      <span class="index-badge">{section.index}</span>
+      <span class="chip" lang="ja">{section.kana}</span>
+      <span class="sys">{section.signal}</span>
+    </div>
+    <div class="hero-lockup">
+      <p class="hero-kana" lang="ja">{section.kana}</p>
+      <h1><span class="sr-only">{section.title}</span><GlitchTitle text={section.mark} /></h1>
+    </div>
+    <div class="tl-intro">
+      <p class="tl-kicker"><span lang="ja">おしえかた</span> / Approach</p>
+      <p class="tl-approach"><span class="ph">[placeholder: {teacher.approach}]</span></p>
+    </div>
+  </header>
+
+  <section class="tl-block tl-classes" aria-labelledby="tl-classes">
+    <p class="tl-kicker"><span lang="ja">クラス</span> / Classes</p>
+    <h2 id="tl-classes" class="tl-h2">Choose a class</h2>
+    <ul class="tl-grid">
+      {teacher.tiles.map((t) => (
+        <li class="tl-tile">
+          <a class="holo-face" href={`/teacher/${t.id}`}>
+            <span class="holo-brackets" aria-hidden="true"></span>
+            <span class="holo-scan" aria-hidden="true"></span>
+            <HoloIcon name={t.icon} />
+            <span class="holo-top">
+              <span class="holo-code">{t.code}</span>
+              <span class="holo-kana" lang="ja">{t.kana}</span>
+            </span>
+            <span class="holo-copy">
+              <span class="holo-title" role="heading" aria-level="3">{t.title}</span>
+              {t.fact && <span class="holo-sub tl-fact">{t.fact}</span>}
+              <span class="holo-sub"><span class="ph">[placeholder: {t.blurb}]</span></span>
+            </span>
+            <span class="holo-foot tl-foot">
+              <span class="tl-view" aria-hidden="true">VIEW → <span lang="ja">詳細</span></span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+
+  <nav class="pager" aria-label="Adjacent sections">
+    {prev && <a class="pager-prev" href={prev.route}>← {prev.index} {prev.navLabel}</a>}
+    {next && <a class="pager-next" href={next.route}>{next.index} {next.navLabel} →</a>}
+  </nav>
+</main>

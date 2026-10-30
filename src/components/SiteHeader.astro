@@ -1,0 +1,34 @@
+---
+import { composeSite } from '../core/compose';
+
+const site = composeSite();
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Yuzu, home">
+    <span class="brand-mark" aria-hidden="true">YUZU</span>
+    <span class="brand-kana" lang="ja" aria-hidden="true">ユズ</span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <ul>
+      {
+        site.sections.map((section) => (
+          <li>
+            <a
+              href={section.route}
+              aria-current={path === section.route ? 'page' : undefined}
+            >
+              <span class="nav-index">{section.index}</span>
+              {section.navLabel}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div class="header-hud" aria-hidden="true">
+    <span class="chip" lang="ja">警告</span>
+    <span class="beats"><i></i><i></i><i></i><i></i></span>
+  </div>
+</header>

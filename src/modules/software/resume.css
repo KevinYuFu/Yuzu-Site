@@ -1,0 +1,94 @@
+/* Software resume view. Palette shared with the hub backdrop. */
+body:has(.rv) .signal-field, body:has(.rv) .vignette, body:has(.rv) .scanlines, body:has(.rv) .hud-frame{display:none}
+body:has(.rv) .site-header{position:relative;z-index:5}
+.rv{--c-line:rgba(176,230,255,.5);--c-br:#b9f3ff;--c-txt:#eef8ff;--c-dim:#b8cfe0;--c-pink:#ff5cb4;--c-cyan:#6ff0ff;--c-violet:#a88bff;
+  position:relative;z-index:4;max-width:1180px;margin:0 auto;padding:1.5rem 1.5rem 4rem;color:var(--c-txt);
+  font:400 1.05rem/1.65 system-ui,"Segoe UI",sans-serif;display:grid;gap:2rem}
+.rv-panel{position:relative;overflow:hidden;padding:1.4rem 1.6rem;border:1px solid var(--c-line);
+  background:linear-gradient(118deg,rgba(198,246,255,.16) 0%,rgba(150,220,255,.04) 22%,transparent 40%),linear-gradient(180deg,rgba(18,36,52,.86),rgba(6,10,16,.92));
+  box-shadow:0 16px 36px rgba(0,0,0,.4),inset 0 0 28px rgba(90,200,255,.07),0 0 18px rgba(70,190,255,.12)}
+.rv-br{position:absolute;inset:7px;pointer-events:none;background:
+  linear-gradient(var(--c-br),var(--c-br)) left top/16px 1px no-repeat,linear-gradient(var(--c-br),var(--c-br)) left top/1px 16px no-repeat,
+  linear-gradient(var(--c-br),var(--c-br)) right top/16px 1px no-repeat,linear-gradient(var(--c-br),var(--c-br)) right top/1px 16px no-repeat,
+  linear-gradient(var(--c-br),var(--c-br)) left bottom/16px 1px no-repeat,linear-gradient(var(--c-br),var(--c-br)) left bottom/1px 16px no-repeat,
+  linear-gradient(var(--c-br),var(--c-br)) right bottom/16px 1px no-repeat,linear-gradient(var(--c-br),var(--c-br)) right bottom/1px 16px no-repeat}
+.rv-scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(180,230,255,.04) 3px 4px)}
+.rv-top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;position:relative}
+.rv-code{font:700 .8rem/1 "Space Mono",monospace;letter-spacing:.14em;color:var(--c-cyan)}
+.rv-kana{font:500 .9rem "Noto Sans JP",sans-serif;color:var(--c-pink);letter-spacing:.15em}
+.rv-time{font:700 .9rem "Space Mono",monospace;color:var(--c-dim)}
+.rv-head{padding:2rem 2.2rem 2.2rem}
+.rv-name{position:relative;margin:.8rem 0 0;font:900 clamp(2.8rem,7vw,5.2rem)/1 "Unbounded",sans-serif;letter-spacing:.04em;text-shadow:0 0 22px rgba(120,220,255,.4)}
+.rv-accent{color:var(--c-cyan)}
+.rv-title{position:relative;margin:.6rem 0 1.2rem;font:700 1.2rem "Space Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--c-pink)}
+.rv-links{position:relative;list-style:none;padding:0;margin:0 0 1.4rem;display:flex;flex-wrap:wrap;gap:.6rem 1.8rem}
+.rv-links li{display:flex;gap:.6rem;align-items:baseline}
+.rv-lbl{font:700 .75rem "Space Mono",monospace;letter-spacing:.16em;color:var(--c-dim)}
+.rv-links a{color:var(--c-txt);text-decoration:underline;text-decoration-color:rgba(111,240,255,.5);text-underline-offset:4px}
+.rv-links a:hover{color:var(--c-cyan)}
+.rv-btn{position:relative;font:700 .9rem "Space Mono",monospace;letter-spacing:.12em;padding:.7rem 1.2rem;border:1px solid var(--c-cyan);color:var(--c-cyan);background:rgba(111,240,255,.08);text-decoration:none;cursor:pointer}
+.rv-btn:disabled{opacity:.6;cursor:not-allowed;border-style:dashed}
+.rv-wm{position:absolute;right:-.05em;bottom:-.25em;font:900 15rem/.8 "Unbounded",sans-serif;color:rgba(186,236,255,.07);pointer-events:none}
+.rv-h{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:1rem;row-gap:.35rem;margin:0 0 1rem;font:400 1.9rem/1.1 "Dela Gothic One",sans-serif;letter-spacing:.03em;position:relative}
+.rv-h .rv-code{flex-basis:100%}.rv-h .rv-kana{margin-left:auto;white-space:nowrap}
+.rv-cols{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:2rem;align-items:start}
+.rv-side{display:grid;gap:2rem}
+.rv-list{list-style:none;margin:0;padding:0;display:grid;gap:1.2rem}
+.rv-side{position:sticky;top:5rem}
+.rv-eduwrap .rv-edu{display:flex;flex-wrap:wrap;gap:.5rem 2.5rem}.rv-eduwrap .rv-edu li{border:0}
+.rv-co{position:relative;margin:.55rem 0 0;font:700 1.45rem/1.25 "Unbounded",sans-serif;letter-spacing:.02em}
+.rv-pos{position:relative;margin:.2rem 0 .6rem;color:var(--c-cyan);font-weight:600;font-size:1.08rem}
+.rv-pts{position:relative;margin:0;padding-left:1.1rem;color:var(--c-txt)}
+.rv-pts li{margin:.35rem 0}.rv-pts li::marker{color:var(--c-pink)}
+.rv-sub{position:relative;margin:.4rem 0 .5rem;font:700 .8rem "Space Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--c-dim)}
+.rv-chips{position:relative;list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.rv-chips li{padding:.3rem .7rem;font:700 .95rem "Space Mono",monospace;border:1px solid rgba(111,240,255,.5);background:rgba(111,240,255,.08);clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.rv-chips-alt li{border-color:rgba(255,92,180,.6);background:rgba(255,92,180,.1)}
+.rv-edu{position:relative;list-style:none;padding:0;margin:.5rem 0 0}.rv-edu li{padding:.25rem 0;border-bottom:1px solid rgba(176,230,255,.15)}
+.rv-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+.rv-soon{display:flex;flex-direction:column;justify-content:center;border-style:dashed;background:rgba(6,10,16,.7)}
+.rv-soon .rv-co{color:var(--c-dim);font-size:1.1rem}
+@media (max-width:860px){.rv-cols{grid-template-columns:1fr}.rv{padding:1rem 1rem 3rem}.rv-head{padding:1.5rem}.rv-wm{font-size:8rem}.rv-h{font-size:1.5rem}}
+
+/* Phone: more air. Desktop untouched. */
+@media (max-width:640px){
+  .rv{padding:1.5rem 1.375rem calc(6rem + env(safe-area-inset-bottom));gap:2.75rem;line-height:1.7}
+  .rv-cols,.rv-side,.rv-grid{gap:2.25rem}
+  .rv-grid{grid-template-columns:1fr}
+  .rv-panel{padding:1.6rem 1.4rem}
+  .rv-head{padding:1.75rem 1.5rem 2rem}
+  .rv-top{flex-direction:column;align-items:flex-start;gap:.45rem}
+  .rv-name{margin-top:1.1rem}
+  .rv-title{margin:.9rem 0 1.6rem;letter-spacing:.14em;line-height:1.5}
+  .rv-links{flex-direction:column;gap:1rem;margin-bottom:1.8rem}
+  .rv-links li{flex-direction:column;gap:.2rem}
+  .rv-btn{display:block;width:100%;text-align:center}
+  .rv-wm{opacity:.5}
+  .rv-h{margin-bottom:1.4rem;row-gap:.5rem}
+  .rv-list{gap:1.75rem}
+  .rv-side{position:static}
+  .rv-eduwrap .rv-edu{display:block}
+  .rv-eduwrap .rv-edu li{border-bottom:1px solid rgba(176,230,255,.15)}
+  .rv-co{margin-top:.9rem;line-height:1.3}
+  .rv-pos{margin:.45rem 0 1rem}
+  .rv-pts{padding-left:1.15rem}.rv-pts li{margin:0 0 .85rem;line-height:1.7}.rv-pts li:last-child{margin-bottom:0}
+  .rv-co + .rv-pts{margin-top:1rem}
+  .rv-sub{margin:1rem 0 .8rem}
+  .rv-chips{gap:.7rem .65rem;margin-bottom:1.4rem}.rv-chips li{padding:.45rem .85rem}
+  .rv-edu{margin-top:1rem}.rv-edu li{padding:.6rem 0}
+  /* calm edges: tone down HUD decorations */
+  body:has(.rv) .hb-vk, body:has(.rv) .hb-lbl, body:has(.rv) .hb-barcode, body:has(.rv) .hb-slash, body:has(.rv) .hb-hud{display:none}
+  body:has(.rv) .hb-big{opacity:.4}
+  body:has(.rv) .hb-ring{opacity:.35}
+}
+.rv-pad>.rv-sub:first-of-type{margin-top:0}.rv-pad>.rv-co:first-of-type{margin-top:0}
+/* clickable project cards */
+a.rv-link{display:flex;flex-direction:column;color:inherit;text-decoration:none;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+a.rv-link .rv-pts{flex:1}
+.rv-view{position:relative;align-self:flex-end;margin-top:1rem;font:700 .78rem "Space Mono",monospace;letter-spacing:.16em;color:var(--c-dim);transition:color .25s}
+.rv-view span{margin-left:.5rem;color:var(--c-pink);letter-spacing:.05em}
+a.rv-link:hover,a.rv-link:focus-visible{transform:translateY(-4px);border-color:rgba(111,240,255,.85);box-shadow:0 0 0 1px rgba(111,240,255,.4),0 0 28px rgba(111,240,255,.28),inset 0 0 40px rgba(111,240,255,.08);outline:none}
+a.rv-link:hover .rv-view,a.rv-link:focus-visible .rv-view{color:#6ff0ff}
+@media (prefers-reduced-motion:reduce){a.rv-link:hover{transform:none}}
+.rv-back{display:inline-block;margin-top:1.6rem;font:700 .85rem "Space Mono",monospace;letter-spacing:.14em;color:#6ff0ff;text-decoration:none;border-bottom:1px solid currentColor}
+.rv-stubtxt{position:relative;margin:1.4rem 0 0;padding:1rem 1.2rem;border:1px dashed rgba(111,240,255,.45);font:700 .95rem "Space Mono",monospace;letter-spacing:.08em;color:var(--c-dim)}
