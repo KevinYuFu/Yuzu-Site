@@ -1,6 +1,6 @@
 import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
-import { bio } from './bio.data';
+import { mainBio } from './bio.data';
 
 export const section = defineSection({
   id: 'about',
@@ -43,7 +43,7 @@ export const section = defineSection({
     {
       kind: 'copy',
       heading: 'Who',
-      body: text(bio.full),
+      body: text(mainBio),
     },
     {
       kind: 'copy',

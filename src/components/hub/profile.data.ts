@@ -1,4 +1,4 @@
-import { bio } from '../../modules/about/bio.data';
+import { mainBio } from '../../modules/about/bio.data';
 
 /** Main Hub profile: Yu's portrait and bio teaser. */
 export interface HubProfile {
@@ -28,6 +28,6 @@ export const hubProfile: HubProfile = {
   },
   name: 'Yu Fu',
   kana: 'ユズ',
-  excerpt: bio.excerpt,
+  excerpt: mainBio,
   bioHref: '/about',
 };
