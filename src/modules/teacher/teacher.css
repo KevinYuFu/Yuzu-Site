@@ -3,7 +3,7 @@
 .tl-intro { max-width: 40rem; margin-top: 2.5rem; }
 .tl-kicker { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tl-c); margin: 0 0 0.9rem; }
 .tl-kicker span { font-family: var(--font-jp); color: var(--color-lilac); }
-.tl-approach { font-family: var(--font-jp); font-size: 1.1rem; line-height: 1.8; color: #e9f6ff; margin: 0 0 2rem; }
+.tl-approach { font-family: var(--font-jp); font-size: 1.1rem; line-height: 1.8; color: #e9f6ff; margin: 0 0 2rem; max-width: 62ch; padding-left: 1rem; border-left: 2px solid rgba(126, 240, 255, 0.45); text-shadow: 0 0 18px rgba(126, 240, 255, 0.25); }
 .tl-note { margin: 0.8rem 0 0; font-size: 0.75rem; color: rgba(220, 240, 255, 0.6); }
 .tl-block { position: relative; z-index: 2; margin-top: clamp(5rem, 10vw, 8rem); }
 .tl-h2 { font-family: var(--font-kana); font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.4rem); color: #fff; margin: 0 0 2.2rem; }

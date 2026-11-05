@@ -14,7 +14,8 @@ export interface TeachTile {
 }
 
 export const teacher = {
-  approach: 'teaching approach, 2–3 sentences',
+  approach:
+    "I teach the way I learn best: through excitement and muscle memory. I break the \"vibes\" of a craft into clear rules, show them in action, then give you fun practice until you stop thinking and just do it. Mistakes are welcome, and I cheer for them. My favourite is one-on-one: I find exactly what you're missing, and use analogies from your own world to get you to the next level.",
   tiles: [
     { id: 'music-production', code: 'EDU-01', title: 'Music Production', kana: 'おんがくせいさく', blurb: 'music production lessons, one line', icon: 'wave' },
     { id: 'djing', code: 'EDU-02', title: 'DJing', kana: 'ディージェイ', fact: 'JSTDRMN Academy DJ Bootcamp', blurb: 'DJ Bootcamp details, one line', icon: 'fader' },

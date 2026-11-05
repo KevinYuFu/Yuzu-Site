@@ -1,5 +1,6 @@
 import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
+import { bio } from '../about/bio.data';
 
 export const section = defineSection({
   id: 'producer',
@@ -7,13 +8,13 @@ export const section = defineSection({
   order: 2,
   lane: 'identity',
   index: '02',
-  navLabel: 'Producer',
-  title: 'Music Producer',
-  mark: 'PRODUCER',
-  kana: 'プロデューサー',
+  navLabel: 'Yuzu',
+  title: 'Yuzu',
+  mark: 'YUZU',
+  kana: 'ユズ',
   signal: 'SIG.AUD // YUZU.SYS',
   description: 'Yuzu — hyperbass, hyperpop vocals, bass music, and J-pop chords.',
-  lede: 'Yuzu. Hyperbass, hyperpop vocals, bass music, J-pop chords.',
+  lede: 'Artist',
   homeBlurb: 'Hyperbass · hyperpop · J-pop chords',
   tile: {
     size: 'mid',
@@ -22,13 +23,18 @@ export const section = defineSection({
     colSpan: 5,
     rowSpan: 3,
     code: 'MOD-02',
-    subtitle: 'Hyperbass · hyperpop vocals',
+    subtitle: 'Artist',
     status: 'Bass music · J-pop chords',
     watermark: '02',
     icon: 'wave',
   },
   source: 'content/dj-artist.md',
   blocks: [
+    {
+      kind: 'copy',
+      heading: 'About',
+      body: text(bio.full),
+    },
     {
       kind: 'copy',
       heading: 'Sound',
