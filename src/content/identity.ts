@@ -1,9 +1,9 @@
-import { bio, mainBio } from '../modules/about/bio.data';
+import { bio, mainBio } from './bio';
 
 /**
  * The only place personal, artist, and Chinese names are written.
  * Section modules and chrome read this object. Bios stay worded in
- * `bio.data.ts`; this file only points at those shared strings.
+ * `bio.ts`; this file only points at those shared strings.
  */
 const artistName = 'Yuzu';
 

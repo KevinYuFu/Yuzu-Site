@@ -8,10 +8,10 @@ import { section as software } from '../modules/software/module';
 import { resume } from '../modules/software/resume.data';
 import { section as teacher } from '../modules/teacher/module';
 import type { Block, SectionModule } from './types';
-import { identity } from './identity';
+import { identity } from '../content/identity';
 
 /**
- * Feature models must be filled from `identity`, not a second copy of a name.
+ * Feature models must be filled from `src/content/identity.ts`, not a second copy of a name.
  * The build runs this from the composition root.
  */
 export function assertIdentityModels(): void {

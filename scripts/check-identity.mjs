@@ -1,6 +1,6 @@
 /**
- * Names are written only in src/core/identity.ts.
- * Bio sentences in bio.data.ts may still say the name, because that copy is fixed.
+ * Names are written only in src/content/identity.ts.
+ * Bio sentences in src/content/bio.ts may still say the name, because that copy is fixed.
  */
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -8,8 +8,8 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const allow = new Set([
-  'src/core/identity.ts',
-  'src/modules/about/bio.data.ts',
+  'src/content/identity.ts',
+  'src/content/bio.ts',
 ]);
 const needles = ['Yu Fu', 'Yuzu', 'YUZU', '傅宇', 'ユズ', 'zh-Hant'];
 
@@ -39,4 +39,4 @@ if (hits.length) {
   process.exit(1);
 }
 
-console.log('identity literals stay in src/core/identity.ts');
+console.log('identity literals stay in src/content/identity.ts');

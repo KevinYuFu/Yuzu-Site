@@ -1,6 +1,6 @@
 ---
 import { composeSite } from '../core/compose';
-import { identity } from '../core/identity';
+import { identity } from '../content/identity';
 
 const site = composeSite();
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';

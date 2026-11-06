@@ -1,4 +1,4 @@
-import { identity } from '../../core/identity';
+import { identity } from '../../content/identity';
 
 /** Main Hub profile: Yu's portrait and bio teaser. */
 export interface HubProfile {

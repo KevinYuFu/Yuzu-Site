@@ -1,6 +1,6 @@
 import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
-import { identity } from '../../core/identity';
+import { identity } from '../../content/identity';
 
 export const section = defineSection({
   id: 'rivals',

@@ -5,7 +5,7 @@
  * The displayed name comes from the shared identity. Edit the rest of this file
  * to update the resume; ResumeView.astro only renders it.
  */
-import { identity } from '../../core/identity';
+import { identity } from '../../content/identity';
 
 const [nameAccent, ...nameRest] = identity.personalName.split(' ');
 export interface ResumeRole { company: string; position: string; time: string; points: string[] }
