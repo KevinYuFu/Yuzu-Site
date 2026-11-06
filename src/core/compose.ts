@@ -1,4 +1,5 @@
 import DefaultView from '../components/SectionView.astro';
+import { assertIdentityModels } from './identity.check';
 import type { SectionModule, SectionViewComponent } from './types';
 import { HOME_GRID } from './types';
 
@@ -30,6 +31,7 @@ let site: Site | undefined;
 
 export function composeSite(): Site {
   if (site) return site;
+  assertIdentityModels();
 
   const entries = Object.entries(files).map(([path, mod]) => {
     if (!mod.section) {

@@ -3,6 +3,7 @@ import '../styles/holo.css';
 import HoloIcon from './HoloIcon.astro';
 import HubProfile from './hub/HubProfile.astro';
 import { hubProfile } from './hub/profile.data';
+import { identity } from '../core/identity';
 import type { SectionModule } from '../core/types';
 
 interface Props {
@@ -15,16 +16,16 @@ const { sections } = Astro.props;
 <main id="content" class="holo-home">
   <header class="holo-bar">
     <p class="holo-brand">
-      <span class="sr-only">Yuzu. Yu Fu.</span>
-      <span aria-hidden="true">YUZU</span>
+      <span class="sr-only">{identity.artistName}. {identity.personalName}.</span>
+      <span aria-hidden="true">{identity.artistMark}</span>
     </p>
-    <p class="holo-who">Yu Fu</p>
+    <p class="holo-who">{identity.personalName}</p>
     <p class="holo-tag"><span class="ph">[placeholder: one-line tagline]</span></p>
     <p class="holo-bar-code" aria-hidden="true">SIG // HOME</p>
   </header>
 
   <div class="holo-stage">
-    <h1 class="sr-only">Yuzu</h1>
+    <h1 class="sr-only">{identity.artistName}</h1>
     <HubProfile profile={hubProfile} />
     <div class="holo-menu">
     <nav class="holo-cluster" aria-label="Sections">
@@ -44,7 +45,7 @@ const { sections } = Astro.props;
                 <HoloIcon name={section.tile.icon} />
                 <span class="holo-top">
                   <span class="holo-code">{section.tile.code}</span>
-                  <span class="holo-kana" lang={section.kana === '傅宇' ? 'zh-Hant' : 'ja'}>{section.kana}</span>
+                  <span class="holo-kana" lang={section.kanaLang}>{section.kana}</span>
                 </span>
                 <span class="holo-copy">
                   <span class="holo-title">{section.navLabel}</span>

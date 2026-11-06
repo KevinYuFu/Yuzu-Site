@@ -1,14 +1,15 @@
 ---
 import { composeSite } from '../core/compose';
+import { identity } from '../core/identity';
 
 const site = composeSite();
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
 <header class="site-header">
-  <a class="brand" href="/" aria-label="Yuzu, home">
-    <span class="brand-mark" aria-hidden="true">YUZU</span>
-    <span class="brand-kana" lang="zh-Hant" aria-hidden="true">傅宇</span>
+  <a class="brand" href="/" aria-label={`${identity.artistName}, home`}>
+    <span class="brand-mark" aria-hidden="true">{identity.artistMark}</span>
+    <span class="brand-kana" lang={identity.chineseName.lang} aria-hidden="true">{identity.chineseName.text}</span>
   </a>
   <nav class="site-nav" aria-label="Sections">
     <ul>

@@ -1,5 +1,6 @@
 import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
+import { identity } from '../../core/identity';
 
 export const section = defineSection({
   id: 'software',
@@ -12,7 +13,7 @@ export const section = defineSection({
   mark: 'SOFTWARE',
   kana: 'ソフトウェア',
   signal: 'SIG.APP // FRUIT.SYS',
-  description: 'Software by Yu Fu. Fruit-named apps, including Tangerine, a tab manager.',
+  description: `Software by ${identity.personalName}. Fruit-named apps, including Tangerine, a tab manager.`,
   lede: 'Fruit-named apps. Tangerine is a tab manager. Everything else on this page is still open.',
   homeBlurb: 'Fruit-named apps · Tangerine',
   tile: {

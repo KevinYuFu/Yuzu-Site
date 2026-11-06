@@ -1,6 +1,6 @@
 import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
-import { mainBio } from './bio.data';
+import { identity } from '../../core/identity';
 
 export const section = defineSection({
   id: 'about',
@@ -13,9 +13,9 @@ export const section = defineSection({
   mark: 'ABOUT',
   kana: 'プロフィール',
   signal: 'SIG.BIO // YU.SYS',
-  description: 'About Yu Fu, artist name Yuzu.',
-  lede: 'Yu Fu. Artist name Yuzu.',
-  homeBlurb: 'Yu Fu',
+  description: `About ${identity.personalName}, artist name ${identity.artistName}.`,
+  lede: `${identity.personalName}. Artist name ${identity.artistName}.`,
+  homeBlurb: identity.personalName,
   tile: {
     size: 'small',
     col: 9,
@@ -23,8 +23,8 @@ export const section = defineSection({
     colSpan: 2,
     rowSpan: 3,
     code: 'MOD-06',
-    subtitle: 'Yu Fu',
-    status: 'Artist name Yuzu',
+    subtitle: identity.personalName,
+    status: `Artist name ${identity.artistName}`,
     watermark: '06',
     icon: 'id',
   },
@@ -34,8 +34,8 @@ export const section = defineSection({
       kind: 'fields',
       heading: 'Name',
       items: [
-        { label: 'Display name', value: text('Yu Fu') },
-        { label: 'Artist name', value: text('Yuzu') },
+        { label: 'Display name', value: text(identity.personalName) },
+        { label: 'Artist name', value: text(identity.artistName) },
         { label: 'Tagline', value: gap('one-line tagline') },
         { label: 'Based', value: text('Toronto') },
       ],
@@ -43,7 +43,7 @@ export const section = defineSection({
     {
       kind: 'copy',
       heading: 'Who',
-      body: text(mainBio),
+      body: text(identity.mainBio),
     },
     {
       kind: 'copy',

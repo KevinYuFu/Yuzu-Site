@@ -3,6 +3,7 @@ import '../styles/global.css';
 import HudFrame from '../components/HudFrame.astro';
 import SignalField from '../components/SignalField.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import { homeDescription, pageTitle } from '../core/identity';
 
 interface Props {
   title?: string;
@@ -12,8 +13,8 @@ interface Props {
 }
 
 const {
-  title = 'Yuzu — Yu Fu',
-  description = 'Yu Fu (Yuzu): software, music production, mixing and mastering, teaching, and the Rivals event.',
+  title = pageTitle(),
+  description = homeDescription,
   shell = 'page',
 } = Astro.props;
 const home = shell === 'home';

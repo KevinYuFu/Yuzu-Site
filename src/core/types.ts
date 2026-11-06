@@ -66,8 +66,10 @@ export interface SectionModule {
   title: string;
   /** Short glitch word on the section hero. */
   mark: string;
-  /** Japanese accent, from the site's kana subset. */
+  /** Accent beside the Latin title. Language is `kanaLang`. */
   kana: string;
+  /** BCP 47 tag for `kana`. Japanese section labels use `ja`. */
+  kanaLang: string;
   /** Decorative signal id in the neo-Tokyo HUD. */
   signal: string;
   description: string;
@@ -81,7 +83,10 @@ export interface SectionModule {
   blocks: Block[];
 }
 
-export type SectionInput = Omit<SectionModule, 'route'>;
+export type SectionInput = Omit<SectionModule, 'route' | 'kanaLang'> & {
+  /** Defaults to `ja` when the accent is a Japanese section label. */
+  kanaLang?: string;
+};
 
 export interface SectionViewProps {
   section: SectionModule;

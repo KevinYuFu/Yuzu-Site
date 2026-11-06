@@ -31,6 +31,7 @@ export function defineSection(input: SectionInput): SectionModule {
   const section: SectionModule = {
     ...input,
     route: `/${input.slug}`,
+    kanaLang: input.kanaLang || 'ja',
   };
 
   const missing = required.filter((key) => {

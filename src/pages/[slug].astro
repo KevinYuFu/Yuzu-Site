@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { composeSite } from '../core/compose';
+import { pageTitle } from '../core/identity';
 import type { SectionModule } from '../core/types';
 
 export function getStaticPaths() {
@@ -22,6 +23,6 @@ const prev = site.sections[index - 1];
 const next = site.sections[index + 1];
 ---
 
-<Base title={`${section.title} — Yuzu`} description={section.description}>
+<Base title={pageTitle(section.title)} description={section.description}>
   <View section={section} sections={site.sections} prev={prev} next={next} />
 </Base>

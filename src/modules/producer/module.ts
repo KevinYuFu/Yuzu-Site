@@ -1,6 +1,6 @@
 import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
-import { bio } from '../about/bio.data';
+import { identity } from '../../core/identity';
 
 export const section = defineSection({
   id: 'producer',
@@ -8,12 +8,13 @@ export const section = defineSection({
   order: 2,
   lane: 'identity',
   index: '02',
-  navLabel: 'Yuzu',
-  title: 'Yuzu',
-  mark: 'YUZU',
-  kana: '傅宇',
-  signal: 'SIG.AUD // YUZU.SYS',
-  description: 'Yuzu — hyperbass, hyperpop vocals, bass music, and J-pop chords.',
+  navLabel: identity.artistName,
+  title: identity.artistName,
+  mark: identity.artistMark,
+  kana: identity.chineseName.text,
+  kanaLang: identity.chineseName.lang,
+  signal: `SIG.AUD // ${identity.artistMark}.SYS`,
+  description: `${identity.artistName} — hyperbass, hyperpop vocals, bass music, and J-pop chords.`,
   lede: 'Artist',
   homeBlurb: 'Hyperbass · hyperpop · J-pop chords',
   tile: {
@@ -33,7 +34,7 @@ export const section = defineSection({
     {
       kind: 'copy',
       heading: 'About',
-      body: text(bio.full),
+      body: text(identity.artistBio),
     },
     {
       kind: 'copy',

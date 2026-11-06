@@ -3,14 +3,15 @@ import Base from '../layouts/Base.astro';
 import HomeStage from '../components/HomeStage.astro';
 import HubBackdrop from '../components/HubBackdrop.astro';
 import { composeSite } from '../core/compose';
+import { homeDescription, pageTitle } from '../core/identity';
 
 const site = composeSite();
 ---
 
 <Base
   shell="home"
-  title="Yuzu — Yu Fu"
-  description="Yu Fu (Yuzu): software, music production, mixing and mastering, teaching, and the Rivals event."
+  title={pageTitle()}
+  description={homeDescription}
 >
   <HubBackdrop />
   <HomeStage sections={site.sections} />

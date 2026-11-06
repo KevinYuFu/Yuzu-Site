@@ -1,4 +1,4 @@
-import { mainBio } from '../../modules/about/bio.data';
+import { identity } from '../../core/identity';
 
 /** Main Hub profile: Yu's portrait and bio teaser. */
 export interface HubProfile {
@@ -10,7 +10,7 @@ export interface HubProfile {
     alt: string;
   };
   name: string;
-  kana: string;
+  chineseName: typeof identity.chineseName;
   excerpt: string;
   /** Where the full bio lives. */
   bioHref: string;
@@ -24,10 +24,10 @@ export const hubProfile: HubProfile = {
     ],
     width: 711,
     height: 1600,
-    alt: 'Yu Fu sitting on a tall stool, in a black and white hoodie and cargo pants.',
+    alt: `${identity.personalName} sitting on a tall stool, in a black and white hoodie and cargo pants.`,
   },
-  name: 'Yu Fu',
-  kana: '傅宇',
-  excerpt: mainBio,
+  name: identity.personalName,
+  chineseName: identity.chineseName,
+  excerpt: identity.mainBio,
   bioHref: '/about',
 };
