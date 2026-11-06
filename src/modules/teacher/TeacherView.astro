@@ -14,11 +14,11 @@ const { section, prev, next } = Astro.props as SectionViewProps;
   <header class="hero tl-hero">
     <div class="hero-meta">
       <span class="index-badge">{section.index}</span>
-      <span class="chip" lang="ja">{section.kana}</span>
+      <span class="chip" lang={section.kanaLang}>{section.kana}</span>
       <span class="sys">{section.signal}</span>
     </div>
     <div class="hero-lockup">
-      <p class="hero-kana" lang="ja">{section.kana}</p>
+      <p class="hero-kana" lang={section.kanaLang}>{section.kana}</p>
       <h1><span class="sr-only">{section.title}</span><GlitchTitle text={section.mark} /></h1>
     </div>
     <div class="tl-intro">

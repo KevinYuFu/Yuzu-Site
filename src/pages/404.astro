@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import GlitchTitle from '../components/GlitchTitle.astro';
+import { identity, pageTitle } from '../content/identity';
 ---
 
-<Base title="Signal lost — Yuzu" description="That page is not on the Yuzu site.">
+<Base title={pageTitle('Signal lost')} description={`That page is not on the ${identity.artistName} site.`}>
   <main id="content" class="section-page">
     <header class="hero">
       <div class="hero-meta">
@@ -16,7 +17,7 @@ import GlitchTitle from '../components/GlitchTitle.astro';
         <GlitchTitle text="LOST" />
       </h1>
       <p class="lede">That route is not registered.</p>
-      <a class="text-link" href="/">Return to Yuzu</a>
+      <a class="text-link" href="/">Return to {identity.artistName}</a>
     </header>
   </main>
 </Base>

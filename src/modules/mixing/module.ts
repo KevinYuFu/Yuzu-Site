@@ -1,5 +1,6 @@
 import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
+import { identity } from '../../content/identity';
 
 export const section = defineSection({
   id: 'mixing',
@@ -12,7 +13,7 @@ export const section = defineSection({
   mark: 'MASTER',
   kana: 'マスタリング',
   signal: 'SIG.MIX // MASTER.SYS',
-  description: 'Mixing and mastering by Yu Fu.',
+  description: `Mixing and mastering by ${identity.personalName}.`,
   lede: 'Mixing and mastering. Services, credits, and rates are not filled in yet.',
   homeBlurb: 'Mixing & mastering',
   tile: {

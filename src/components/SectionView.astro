@@ -15,11 +15,11 @@ function registryItems(block: Extract<Block, { kind: 'registry' }>) {
   <header class="hero">
     <div class="hero-meta">
       <span class="index-badge">{section.index}</span>
-      <span class="chip" lang="ja">{section.kana}</span>
+      <span class="chip" lang={section.kanaLang}>{section.kana}</span>
       <span class="sys">{section.signal}</span>
     </div>
     <div class="hero-lockup">
-      <p class="hero-kana" lang="ja">{section.kana}</p>
+      <p class="hero-kana" lang={section.kanaLang}>{section.kana}</p>
       <div>
         <h1>
           <span class="sr-only">{section.title}</span>
@@ -91,7 +91,7 @@ function registryItems(block: Extract<Block, { kind: 'registry' }>) {
                   <a class="registry-link" href={item.route}>
                     <span class="index-badge">{item.index}</span>
                     <span>{item.navLabel}</span>
-                    <span class="registry-kana" lang="ja">{item.kana}</span>
+                    <span class="registry-kana" lang={item.kanaLang}>{item.kana}</span>
                   </a>
                 ))}
               </div>

@@ -12,7 +12,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
 <main id="content" class="rv">
   <section class="rv-panel rv-head">
     <span class="rv-br" aria-hidden="true"></span><span class="rv-scan" aria-hidden="true"></span>
-    <div class="rv-top"><span class="rv-code">{section.tile.code} // RESUME</span><span class="rv-kana" lang="ja">{section.kana}</span></div>
+    <div class="rv-top"><span class="rv-code">{section.tile.code} // RESUME</span><span class="rv-kana" lang={section.kanaLang}>{section.kana}</span></div>
     <h1 class="rv-name"><span class="rv-accent">{resume.name.accent}</span> {resume.name.rest}</h1>
     <p class="rv-title">{resume.title}</p>
     <ul class="rv-links">

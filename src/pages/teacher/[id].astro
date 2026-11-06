@@ -3,6 +3,7 @@
 import Base from '../../layouts/Base.astro';
 import HubBackdrop from '../../components/HubBackdrop.astro';
 import GlitchTitle from '../../components/GlitchTitle.astro';
+import { identity, pageTitle } from '../../content/identity';
 import { teacher, type TeachTile } from '../../modules/teacher/teacher.data';
 import '../../modules/teacher/teacher.css';
 
@@ -12,7 +13,7 @@ export function getStaticPaths() {
 interface Props { tile: TeachTile }
 const { tile } = Astro.props;
 ---
-<Base title={`${tile.title} — Teacher — Yuzu`} description={`${tile.title} classes with Yu Fu.`}>
+<Base title={pageTitle(`${tile.title} — Teacher`)} description={`${tile.title} classes with ${identity.personalName}.`}>
   <HubBackdrop />
   <main id="content" class="section-page tl tl-detail">
     <header class="hero tl-hero">

@@ -2,14 +2,18 @@
  * Resume data for the Software page.
  * Source of truth: /workspace/Resume (branch main), src/body/*.js — copied verbatim
  * (only uncommented entries). Phone number intentionally omitted (public site).
- * Edit this file to update the resume; ResumeView.astro only renders it.
+ * The displayed name comes from the shared identity. Edit the rest of this file
+ * to update the resume; ResumeView.astro only renders it.
  */
+import { identity } from '../../content/identity';
+
+const [nameAccent, ...nameRest] = identity.personalName.split(' ');
 export interface ResumeRole { company: string; position: string; time: string; points: string[] }
 export interface ResumeProject { slug: string; name: string; time: string; points: string[] }
 export interface ResumeLink { label: string; text: string; href?: string; placeholder?: boolean }
 
 export const resume = {
-  name: { accent: 'Yu', rest: 'Fu' },
+  name: { accent: nameAccent, rest: nameRest.join(' ') },
   /** Not in the resume source; site title from the module. */
   title: 'Software Engineer',
   links: [

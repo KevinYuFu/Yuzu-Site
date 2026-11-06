@@ -1,5 +1,6 @@
 import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
+import { identity } from '../../content/identity';
 
 export const section = defineSection({
   id: 'contact',
@@ -12,9 +13,9 @@ export const section = defineSection({
   mark: 'CONTACT',
   kana: 'コンタクト',
   signal: 'SIG.IO // CONTACT.SYS',
-  description: 'Contact Yu Fu (Yuzu). Public details are not filled in yet.',
+  description: `Contact ${identity.personalName} (${identity.artistName}). Public details are not filled in yet.`,
   lede: 'Public contact details are not filled in yet.',
-  homeBlurb: 'Reach Yu Fu',
+  homeBlurb: `Reach ${identity.personalName}`,
   tile: {
     size: 'small',
     col: 11,
@@ -22,7 +23,7 @@ export const section = defineSection({
     colSpan: 2,
     rowSpan: 3,
     code: 'MOD-07',
-    subtitle: 'Reach Yu Fu',
+    subtitle: `Reach ${identity.personalName}`,
     status: 'public contact',
     statusPlaceholder: true,
     watermark: '07',

@@ -1,5 +1,6 @@
 import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
+import { identity } from '../../content/identity';
 
 export const section = defineSection({
   id: 'rivals',
@@ -12,8 +13,8 @@ export const section = defineSection({
   mark: 'RIVALS',
   kana: 'ライバルズ',
   signal: 'SIG.EVT // RIVALS.SYS',
-  description: 'Rivals, an event run by Yu Fu.',
-  lede: 'An event run by Yu Fu. What it is, when it happens, and how to join are not filled in yet.',
+  description: `Rivals, an event run by ${identity.personalName}.`,
+  lede: `An event run by ${identity.personalName}. What it is, when it happens, and how to join are not filled in yet.`,
   homeBlurb: 'Event',
   tile: {
     size: 'mid',
@@ -23,7 +24,7 @@ export const section = defineSection({
     rowSpan: 3,
     code: 'MOD-05',
     subtitle: 'Event',
-    status: 'Run by Yu Fu',
+    status: `Run by ${identity.personalName}`,
     watermark: '05',
     icon: 'mark',
   },
