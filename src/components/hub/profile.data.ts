@@ -27,7 +27,7 @@ export const hubProfile: HubProfile = {
     alt: 'Yu Fu sitting on a tall stool, in a black and white hoodie and cargo pants.',
   },
   name: 'Yu Fu',
-  kana: 'ユズ',
+  kana: '傅宇',
   excerpt: mainBio,
   bioHref: '/about',
 };

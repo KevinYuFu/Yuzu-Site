@@ -11,7 +11,7 @@ export const section = defineSection({
   navLabel: 'Yuzu',
   title: 'Yuzu',
   mark: 'YUZU',
-  kana: 'ユズ',
+  kana: '傅宇',
   signal: 'SIG.AUD // YUZU.SYS',
   description: 'Yuzu — hyperbass, hyperpop vocals, bass music, and J-pop chords.',
   lede: 'Artist',

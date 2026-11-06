@@ -44,7 +44,7 @@ const { sections } = Astro.props;
                 <HoloIcon name={section.tile.icon} />
                 <span class="holo-top">
                   <span class="holo-code">{section.tile.code}</span>
-                  <span class="holo-kana" lang="ja">{section.kana}</span>
+                  <span class="holo-kana" lang={section.kana === '傅宇' ? 'zh-Hant' : 'ja'}>{section.kana}</span>
                 </span>
                 <span class="holo-copy">
                   <span class="holo-title">{section.navLabel}</span>
