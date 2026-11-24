@@ -1,4 +1,4 @@
-import { hubProfile } from '../components/hub/profile.data';
+import { hubProfile } from '../content/profile';
 import { section as about } from '../modules/about/module';
 import { section as contact } from '../modules/contact/module';
 import { section as mixing } from '../modules/mixing/module';
