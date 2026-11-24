@@ -1,0 +1,24 @@
+---
+/* Project showcase stub. Real showcase content from Yu comes later. */
+import type { ResumeProject } from './resume.data';
+import './resume.css';
+
+interface Props {
+  project: ResumeProject;
+  n: number;
+}
+
+const { project, n } = Astro.props;
+---
+
+<main id="content" class="rv">
+  <section class="rv-panel rv-head">
+    <span class="rv-br" aria-hidden="true"></span><span class="rv-scan" aria-hidden="true"></span>
+    <div class="rv-top"><span class="rv-code">PRJ-{String(n).padStart(2, '0')} // PROJECT</span><span class="rv-kana" lang="ja">プロジェクト</span></div>
+    <h1 class="rv-name">{project.name}</h1>
+    <p class="rv-title">{project.time}</p>
+    <p class="rv-stubtxt">[project showcase coming soon]</p>
+    <a class="rv-back" href="/software">← BACK TO SOFTWARE</a>
+    <span class="rv-wm" aria-hidden="true">{String(n).padStart(2, '0')}</span>
+  </section>
+</main>

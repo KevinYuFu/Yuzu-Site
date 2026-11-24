@@ -1,6 +1,6 @@
 ---
 import './SiteHeader.css';
-import './marks.css';
+import Chip from './chip/Chip.astro';
 import { composeSite } from '../core/compose';
 import { identity } from '../content/identity';
 
@@ -31,7 +31,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     </ul>
   </nav>
   <div class="header-hud" aria-hidden="true">
-    <span class="chip" lang="ja">警告</span>
+    <Chip lang="ja">警告</Chip>
     <span class="beats"><i></i><i></i><i></i><i></i></span>
   </div>
 </header>

@@ -1,8 +1,10 @@
 ---
-import './SectionView.css';
-import './marks.css';
 import GlitchTitle from './GlitchTitle.astro';
 import TextBit from './TextBit.astro';
+import HeroMeta from './section/HeroMeta.astro';
+import IndexBadge from './section/IndexBadge.astro';
+import Pager from './section/Pager.astro';
+import SectionPage from './section/SectionPage.astro';
 import type { Block, SectionModule, SectionViewProps } from '../core/types';
 
 const { section, sections, prev, next } = Astro.props as SectionViewProps;
@@ -13,13 +15,9 @@ function registryItems(block: Extract<Block, { kind: 'registry' }>) {
 }
 ---
 
-<main id="content" class="section-page">
+<SectionPage>
   <header class="hero">
-    <div class="hero-meta">
-      <span class="index-badge">{section.index}</span>
-      <span class="chip" lang={section.kanaLang}>{section.kana}</span>
-      <span class="sys">{section.signal}</span>
-    </div>
+    <HeroMeta index={section.index} kana={section.kana} kanaLang={section.kanaLang} signal={section.signal} />
     <div class="hero-lockup">
       <p class="hero-kana" lang={section.kanaLang}>{section.kana}</p>
       <div>
@@ -91,7 +89,7 @@ function registryItems(block: Extract<Block, { kind: 'registry' }>) {
               <div class="registry">
                 {registryItems(block).map((item) => (
                   <a class="registry-link" href={item.route}>
-                    <span class="index-badge">{item.index}</span>
+                    <IndexBadge>{item.index}</IndexBadge>
                     <span>{item.navLabel}</span>
                     <span class="registry-kana" lang={item.kanaLang}>{item.kana}</span>
                   </a>
@@ -111,20 +109,5 @@ function registryItems(block: Extract<Block, { kind: 'registry' }>) {
     <span class="foot-jp" lang="ja">同期</span>
   </footer>
 
-  <nav class="pager" aria-label="Adjacent sections">
-    {
-      prev && (
-        <a class="pager-prev" href={prev.route}>
-          ← {prev.index} {prev.navLabel}
-        </a>
-      )
-    }
-    {
-      next && (
-        <a class="pager-next" href={next.route}>
-          {next.index} {next.navLabel} →
-        </a>
-      )
-    }
-  </nav>
-</main>
+  <Pager prev={prev} next={next} />
+</SectionPage>

@@ -1,5 +1,6 @@
 ---
 import './HubProfile.css';
+import HoloTile from '../holo/HoloTile.astro';
 import type { HubProfile } from './profile.data';
 
 interface Props {
@@ -27,25 +28,15 @@ const fallback = photo.sources[photo.sources.length - 1].src;
 </div>
 
 <div class="hub-bio">
-  <a class="holo-slot hub-bio-slot" data-size="mid" href={profile.bioHref}>
-    <span class="holo-bob">
-      <span class="holo-face">
-        <span class="holo-brackets" aria-hidden="true"></span>
-        <span class="holo-scan" aria-hidden="true"></span>
-        <span class="holo-top">
-          <span class="holo-code">ID // YU-FU</span>
-          <span class="holo-kana" lang="ja">プロフィール</span>
-        </span>
-        <span class="holo-copy">
-          <span class="holo-title">
-            {profile.name}
-            <span class="hub-bio-kana" lang={profile.chineseName.lang}>{profile.chineseName.text}</span>
-          </span>
-          <span class="hub-bio-text">{profile.excerpt}</span>
-        </span>
-        <span class="holo-foot">READ FULL BIO <span aria-hidden="true">→</span></span>
+  <HoloTile grid class="hub-bio-slot" size="mid" href={profile.bioHref} code="ID // YU-FU" kana="プロフィール">
+    <span class="holo-copy">
+      <span class="holo-title">
+        {profile.name}
+        <span class="hub-bio-kana" lang={profile.chineseName.lang}>{profile.chineseName.text}</span>
       </span>
+      <span class="hub-bio-text">{profile.excerpt}</span>
     </span>
-  </a>
+    <span class="holo-foot">READ FULL BIO <span aria-hidden="true">→</span></span>
+  </HoloTile>
 </div>
 

@@ -1,26 +1,22 @@
 ---
-/* Teacher module view: a landing page. Tiles reuse the hub's holo-face styles. */
+/* Teacher module view: a landing page. Tiles are HoloTile faces. */
 import HubBackdrop from '../../components/HubBackdrop.astro';
 import GlitchTitle from '../../components/GlitchTitle.astro';
-import HoloIcon from '../../components/HoloIcon.astro';
+import HoloTile from '../../components/holo/HoloTile.astro';
+import HeroMeta from '../../components/section/HeroMeta.astro';
+import Pager from '../../components/section/Pager.astro';
+import SectionPage from '../../components/section/SectionPage.astro';
+import TextBit from '../../components/TextBit.astro';
 import type { SectionViewProps } from '../../core/types';
 import { teacher } from './teacher.data';
-import '../../components/SectionView.css';
-import '../../components/marks.css';
-import '../../components/TextBit.css';
-import '../../components/holo.css';
 import './teacher.css';
 
 const { section, prev, next } = Astro.props as SectionViewProps;
 ---
 <HubBackdrop />
-<main id="content" class="section-page tl">
+<SectionPage class="tl">
   <header class="hero tl-hero">
-    <div class="hero-meta">
-      <span class="index-badge">{section.index}</span>
-      <span class="chip" lang={section.kanaLang}>{section.kana}</span>
-      <span class="sys">{section.signal}</span>
-    </div>
+    <HeroMeta index={section.index} kana={section.kana} kanaLang={section.kanaLang} signal={section.signal} />
     <div class="hero-lockup">
       <p class="hero-kana" lang={section.kanaLang}>{section.kana}</p>
       <h1><span class="sr-only">{section.title}</span><GlitchTitle text={section.mark} /></h1>
@@ -37,31 +33,20 @@ const { section, prev, next } = Astro.props as SectionViewProps;
     <ul class="tl-grid">
       {teacher.tiles.map((t) => (
         <li class="tl-tile">
-          <a class="holo-face" href={`/teacher/${t.id}`}>
-            <span class="holo-brackets" aria-hidden="true"></span>
-            <span class="holo-scan" aria-hidden="true"></span>
-            <HoloIcon name={t.icon} />
-            <span class="holo-top">
-              <span class="holo-code">{t.code}</span>
-              <span class="holo-kana" lang="ja">{t.kana}</span>
-            </span>
+          <HoloTile href={`/teacher/${t.id}`} icon={t.icon} code={t.code} kana={t.kana}>
             <span class="holo-copy">
               <span class="holo-title" role="heading" aria-level="3">{t.title}</span>
               {t.fact && <span class="holo-sub tl-fact">{t.fact}</span>}
-              <span class="holo-sub"><span class="ph">[placeholder: {t.blurb}]</span></span>
+              <span class="holo-sub"><TextBit value={{ text: t.blurb, placeholder: true }} /></span>
             </span>
             <span class="holo-foot tl-foot">
               <span class="tl-view" aria-hidden="true">VIEW → <span lang="ja">詳細</span></span>
             </span>
-          </a>
+          </HoloTile>
         </li>
       ))}
     </ul>
   </section>
 
-
-  <nav class="pager" aria-label="Adjacent sections">
-    {prev && <a class="pager-prev" href={prev.route}>← {prev.index} {prev.navLabel}</a>}
-    {next && <a class="pager-next" href={next.route}>{next.index} {next.navLabel} →</a>}
-  </nav>
-</main>
+  <Pager prev={prev} next={next} />
+</SectionPage>

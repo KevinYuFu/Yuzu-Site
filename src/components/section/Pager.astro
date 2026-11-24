@@ -1,0 +1,22 @@
+---
+/* Previous and next links at the bottom of a section. */
+import './Section.css';
+
+interface Link {
+  route: string;
+  index: string;
+  navLabel: string;
+}
+
+interface Props {
+  prev?: Link;
+  next?: Link;
+}
+
+const { prev, next } = Astro.props;
+---
+
+<nav class="pager" aria-label="Adjacent sections">
+  {prev && <a class="pager-prev" href={prev.route}>← {prev.index} {prev.navLabel}</a>}
+  {next && <a class="pager-next" href={next.route}>{next.index} {next.navLabel} →</a>}
+</nav>

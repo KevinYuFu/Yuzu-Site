@@ -1,0 +1,12 @@
+---
+/* Violet HUD chip. */
+import './Chip.css';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang } = Astro.props;
+---
+
+<span class="chip" lang={lang}><slot /></span>

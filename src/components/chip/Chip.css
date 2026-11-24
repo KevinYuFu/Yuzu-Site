@@ -1,5 +1,5 @@
-/* Violet chip and the small SYS label.
-   Shared by the header, section heroes, teacher pages, and the 404 page. */
+/* Violet chip (.chip) and the small SYS line (.sys).
+   Chip.astro and SysLabel.astro import this. */
 .chip {
   display: inline-flex;
   align-items: center;

@@ -1,5 +1,5 @@
 /* Section page frame: hero, panels, pager, and the scroll reveal.
-   SectionView owns this. Teacher pages and the 404 page reuse the hero and pager, so they import this file too. */
+   The section shell components import this. Pages use those components. */
 
 .section-page {
   position: relative;
