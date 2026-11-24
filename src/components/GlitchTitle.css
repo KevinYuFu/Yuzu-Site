@@ -1,0 +1,34 @@
+/* Big glitch word (.mosh). Section heroes and the 404 page use it. */
+.mosh {
+  position: relative;
+  display: inline-block;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.84;
+  text-transform: uppercase;
+  padding-inline: 0.06em;
+}
+
+.mosh-face {
+  position: relative;
+  z-index: 1;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-transform: inherit;
+  color: #f4f6ff;
+  text-shadow: 0 0 22px rgba(1, 250, 255, 0.22);
+}
+
+/* Single thin cyan accent under the title. */
+.mosh::after {
+  content: "";
+  position: absolute;
+  left: 0.06em;
+  bottom: -0.14em;
+  width: 1.4em;
+  height: 3px;
+  background: rgba(1, 250, 255, 0.7);
+  box-shadow: 0 0 10px rgba(1, 250, 255, 0.35);
+}

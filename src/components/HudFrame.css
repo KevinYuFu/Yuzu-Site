@@ -1,0 +1,59 @@
+/* Corner frame drawn around inner pages. */
+.hud-frame {
+  position: fixed;
+  inset: var(--frame);
+  z-index: 26;
+  border: 1px solid rgba(154, 0, 255, 0.55);
+  pointer-events: none;
+}
+
+.bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #e0b0f8;
+}
+
+.bracket.tl { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.bracket.tr { top: -1px; right: -1px; border-left: 0; border-bottom: 0; }
+.bracket.bl { bottom: -1px; left: -1px; border-right: 0; border-top: 0; }
+.bracket.br { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+.cross {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+}
+
+.cross::before,
+.cross::after {
+  content: "";
+  position: absolute;
+  background: #e0b0f8;
+}
+
+.cross::before { left: 6px; top: 0; width: 1px; height: 13px; }
+.cross::after { top: 6px; left: 0; width: 13px; height: 1px; }
+.cross.tl { top: 22px; left: 22px; }
+.cross.tr { top: 22px; right: 22px; }
+.cross.bl { bottom: 22px; left: 22px; }
+.cross.br { bottom: 22px; right: 22px; }
+
+.hud-v {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-family: "Dela Gothic One", "Noto Sans JP", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.42em;
+  color: #e0b0f8;
+}
+
+.hud-v-l { left: 7px; }
+.hud-v-r { right: 7px; }
+
+@media (max-width: 800px) {
+  .hud-v,
+  .cross { display: none; }
+}

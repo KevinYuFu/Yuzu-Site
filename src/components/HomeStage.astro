@@ -1,7 +1,7 @@
 ---
-import '../styles/holo.css';
-import HoloIcon from './HoloIcon.astro';
+import HoloTile from './holo/HoloTile.astro';
 import HubProfile from './hub/HubProfile.astro';
+import TextBit from './TextBit.astro';
 import { hubProfile } from './hub/profile.data';
 import { identity } from '../content/identity';
 import type { SectionModule } from '../core/types';
@@ -20,7 +20,7 @@ const { sections } = Astro.props;
       <span aria-hidden="true">{identity.artistMark}</span>
     </p>
     <p class="holo-who">{identity.personalName}</p>
-    <p class="holo-tag"><span class="ph">[placeholder: one-line tagline]</span></p>
+    <p class="holo-tag"><TextBit value={{ text: 'one-line tagline', placeholder: true }} /></p>
     <p class="holo-bar-code" aria-hidden="true">SIG // HOME</p>
   </header>
 
@@ -31,36 +31,29 @@ const { sections } = Astro.props;
     <nav class="holo-cluster" aria-label="Sections">
       {
         sections.map((section, index) => (
-          <a
-            class="holo-slot"
-            data-size={section.tile.size}
+          <HoloTile
+            grid
             href={section.route}
+            size={section.tile.size}
+            icon={section.tile.icon}
+            code={section.tile.code}
+            kana={section.kana}
+            kanaLang={section.kanaLang}
+            watermark={section.tile.watermark}
             style={`--col:${section.tile.col};--row:${section.tile.row};--cs:${section.tile.colSpan};--rs:${section.tile.rowSpan};--i:${index}`}
           >
-            <span class="holo-bob">
-              <span class="holo-face">
-                <span class="holo-brackets" aria-hidden="true"></span>
-                <span class="holo-scan" aria-hidden="true"></span>
-                <span class="holo-watermark" aria-hidden="true">{section.tile.watermark}</span>
-                <HoloIcon name={section.tile.icon} />
-                <span class="holo-top">
-                  <span class="holo-code">{section.tile.code}</span>
-                  <span class="holo-kana" lang={section.kanaLang}>{section.kana}</span>
-                </span>
-                <span class="holo-copy">
-                  <span class="holo-title">{section.navLabel}</span>
-                  <span class="holo-sub">{section.tile.subtitle}</span>
-                </span>
-                <span class="holo-foot">
-                  {section.tile.statusPlaceholder ? (
-                    <span class="ph">[placeholder: {section.tile.status}]</span>
-                  ) : (
-                    <span>{section.tile.status}</span>
-                  )}
-                </span>
-              </span>
+            <span class="holo-copy">
+              <span class="holo-title">{section.navLabel}</span>
+              <span class="holo-sub">{section.tile.subtitle}</span>
             </span>
-          </a>
+            <span class="holo-foot">
+              {section.tile.statusPlaceholder ? (
+                <TextBit value={{ text: section.tile.status, placeholder: true }} />
+              ) : (
+                <span>{section.tile.status}</span>
+              )}
+            </span>
+          </HoloTile>
         ))
       }
     </nav>
@@ -69,7 +62,7 @@ const { sections } = Astro.props;
 </main>
 
 <script>
-  import { mountHoloParallax } from '../scripts/holo-parallax';
+  import { mountHoloParallax } from './holo/holo-parallax';
 
   const stage = document.querySelector<HTMLElement>('.holo-stage');
   if (stage) mountHoloParallax(stage);

@@ -1,0 +1,22 @@
+---
+/* Index, chip, and SYS row at the top of a section hero. */
+import './Section.css';
+import Chip from '../chip/Chip.astro';
+import SysLabel from '../chip/SysLabel.astro';
+import IndexBadge from './IndexBadge.astro';
+
+interface Props {
+  index: string;
+  kana: string;
+  kanaLang?: string;
+  signal: string;
+}
+
+const { index, kana, kanaLang, signal } = Astro.props;
+---
+
+<div class="hero-meta">
+  <IndexBadge>{index}</IndexBadge>
+  <Chip lang={kanaLang}>{kana}</Chip>
+  <SysLabel>{signal}</SysLabel>
+</div>

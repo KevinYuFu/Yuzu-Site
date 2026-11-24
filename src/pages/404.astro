@@ -1,23 +1,22 @@
 ---
 import Base from '../layouts/Base.astro';
 import GlitchTitle from '../components/GlitchTitle.astro';
+import HeroMeta from '../components/section/HeroMeta.astro';
+import SectionPage from '../components/section/SectionPage.astro';
+import TextLink from '../components/section/TextLink.astro';
 import { identity, pageTitle } from '../content/identity';
 ---
 
 <Base title={pageTitle('Signal lost')} description={`That page is not on the ${identity.artistName} site.`}>
-  <main id="content" class="section-page">
+  <SectionPage>
     <header class="hero">
-      <div class="hero-meta">
-        <span class="index-badge">404</span>
-        <span class="chip" lang="ja">エラー</span>
-        <span class="sys">SIG.LOST // 0x9A00FF</span>
-      </div>
+      <HeroMeta index="404" kana="エラー" kanaLang="ja" signal="SIG.LOST // 0x9A00FF" />
       <h1>
         <span class="sr-only">Signal lost</span>
         <GlitchTitle text="LOST" />
       </h1>
       <p class="lede">That route is not registered.</p>
-      <a class="text-link" href="/">Return to {identity.artistName}</a>
+      <TextLink href="/">Return to {identity.artistName}</TextLink>
     </header>
-  </main>
+  </SectionPage>
 </Base>

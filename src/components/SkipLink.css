@@ -1,0 +1,16 @@
+/* Skip link. Hidden until it is focused. */
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 80;
+  background: #9a00ff;
+  color: #fff;
+  padding: 0.55rem 0.8rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.8rem;
+}
+
+.skip:focus {
+  top: 0.7rem;
+}

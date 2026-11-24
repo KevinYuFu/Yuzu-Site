@@ -1,4 +1,6 @@
-/* Hub tiles. Also reused (holo-face only) by the teacher landing. */
+/* Holographic tiles, and the home stage they sit on.
+   HoloTile.astro is the only file that imports this.
+   Home uses the grid slot. Teacher uses the glass face. */
 
 .holo-home {
   position: relative;

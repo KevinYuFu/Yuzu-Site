@@ -1,4 +1,4 @@
-/* Teacher landing. Tiles use .holo-face from holo.css; hover here is calm (no flicker). */
+/* Teacher landing and class pages. Tiles use HoloTile; hover here is calm (no flicker). */
 .tl { --tl-c: #5dfff6; --tl-p: #ff3ec8; --tl-v: #9a00ff; }
 .tl-intro { max-width: 40rem; margin-top: 2.5rem; }
 .tl-kicker { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tl-c); margin: 0 0 0.9rem; }

@@ -1,0 +1,40 @@
+---
+/* One class page. Facts come from teacher.data.ts. The rest are placeholders. */
+import HubBackdrop from '../../components/HubBackdrop.astro';
+import GlitchTitle from '../../components/GlitchTitle.astro';
+import HeroMeta from '../../components/section/HeroMeta.astro';
+import SectionPage from '../../components/section/SectionPage.astro';
+import TextBit from '../../components/TextBit.astro';
+import type { TeachTile } from './teacher.data';
+import './teacher.css';
+
+interface Props {
+  tile: TeachTile;
+}
+
+const { tile } = Astro.props;
+---
+
+<HubBackdrop />
+<SectionPage class="tl tl-detail">
+  <header class="hero tl-hero">
+    <HeroMeta index={tile.code} kana={tile.kana} kanaLang="ja" signal="SIG.EDU // CLASS" />
+    <div class="hero-lockup">
+      <h1><span class="sr-only">{tile.title}</span><GlitchTitle text={tile.title.toUpperCase()} /></h1>
+    </div>
+    <div class="tl-intro">
+      <p class="tl-kicker"><span lang="ja">{tile.kana}</span> / {tile.title}</p>
+      {tile.fact && <p class="tl-approach">{tile.fact}</p>}
+    </div>
+  </header>
+
+  <section class="tl-block tl-classes" aria-label="Class details">
+    <dl class="tl-fields">
+      <div class="tl-field"><dt>What I teach</dt><dd><TextBit value={{ text: 'topics', placeholder: true }} /></dd></div>
+      <div class="tl-field"><dt>Who it's for</dt><dd><TextBit value={{ text: "who it's for / levels", placeholder: true }} /></dd></div>
+      <div class="tl-field"><dt>Format</dt><dd><TextBit value={{ text: 'in person or online', placeholder: true }} /></dd></div>
+    </dl>
+  </section>
+
+  <a class="tl-back" href="/teacher">← BACK TO TEACHER</a>
+</SectionPage>

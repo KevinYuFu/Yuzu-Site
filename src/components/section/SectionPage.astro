@@ -1,0 +1,14 @@
+---
+/* The <main> wrapper for a section page. Brings the shared section styles. */
+import './Section.css';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<main id="content" class:list={['section-page', className]}>
+  <slot />
+</main>

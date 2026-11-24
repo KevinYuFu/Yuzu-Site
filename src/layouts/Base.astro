@@ -1,8 +1,11 @@
 ---
-import '../styles/global.css';
+import '../styles/theme.css';
 import HudFrame from '../components/HudFrame.astro';
+import Scanlines from '../components/Scanlines.astro';
 import SignalField from '../components/SignalField.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import SkipLink from '../components/SkipLink.astro';
+import Vignette from '../components/Vignette.astro';
 import { homeDescription, pageTitle } from '../content/identity';
 
 interface Props {
@@ -33,10 +36,10 @@ const home = shell === 'home';
   </head>
   <body class={home ? 'is-home' : undefined}>
     {!home && <SignalField />}
-    {!home && <div class="vignette" aria-hidden="true"></div>}
+    {!home && <Vignette />}
     {!home && <HudFrame />}
-    {!home && <div class="scanlines" aria-hidden="true"></div>}
-    <a class="skip" href="#content">Skip to content</a>
+    {!home && <Scanlines />}
+    <SkipLink />
     {!home && <SiteHeader />}
     <slot />
     <script>

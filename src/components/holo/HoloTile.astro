@@ -1,0 +1,66 @@
+---
+/* One glass tile.
+   Pass `grid` for a home menu cell. Leave it off for the teacher face link.
+   Also loads the home-stage styles that wrap these tiles. */
+import './HoloTile.css';
+import HoloIcon from '../HoloIcon.astro';
+import type { TileIcon } from '../../core/types';
+
+interface Props {
+  href: string;
+  code: string;
+  kana: string;
+  kanaLang?: string;
+  icon?: TileIcon;
+  /** Home grid cell (holo-slot). Teacher tiles are the face link only. */
+  grid?: boolean;
+  size?: string;
+  style?: string;
+  class?: string;
+  watermark?: string;
+}
+
+const {
+  href,
+  code,
+  kana,
+  kanaLang = 'ja',
+  icon,
+  grid = false,
+  size,
+  style,
+  class: className,
+  watermark,
+} = Astro.props;
+---
+
+{
+  grid ? (
+    <a class:list={['holo-slot', className]} data-size={size} href={href} style={style}>
+      <span class="holo-bob">
+        <span class="holo-face">
+          <span class="holo-brackets" aria-hidden="true"></span>
+          <span class="holo-scan" aria-hidden="true"></span>
+          {watermark && <span class="holo-watermark" aria-hidden="true">{watermark}</span>}
+          {icon && <HoloIcon name={icon} />}
+          <span class="holo-top">
+            <span class="holo-code">{code}</span>
+            <span class="holo-kana" lang={kanaLang}>{kana}</span>
+          </span>
+          <slot />
+        </span>
+      </span>
+    </a>
+  ) : (
+    <a class:list={['holo-face', className]} href={href}>
+      <span class="holo-brackets" aria-hidden="true"></span>
+      <span class="holo-scan" aria-hidden="true"></span>
+      {icon && <HoloIcon name={icon} />}
+      <span class="holo-top">
+        <span class="holo-code">{code}</span>
+        <span class="holo-kana" lang={kanaLang}>{kana}</span>
+      </span>
+      <slot />
+    </a>
+  )
+}
