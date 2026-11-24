@@ -1,0 +1,11 @@
+/* Dashed placeholder tag (.ph).
+   TextBit writes it. Home and teacher pages also use the class, so they import this file. */
+.ph {
+  display: inline;
+  padding: 0.05em 0.35em;
+  border: 1px dashed rgba(154, 0, 255, 0.85);
+  background: rgba(154, 0, 255, 0.12);
+  color: #f8f0d0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}

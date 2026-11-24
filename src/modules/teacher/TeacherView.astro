@@ -5,8 +5,12 @@ import GlitchTitle from '../../components/GlitchTitle.astro';
 import HoloIcon from '../../components/HoloIcon.astro';
 import type { SectionViewProps } from '../../core/types';
 import { teacher } from './teacher.data';
-import '../../styles/holo.css';
+import '../../components/SectionView.css';
+import '../../components/marks.css';
+import '../../components/TextBit.css';
+import '../../components/holo.css';
 import './teacher.css';
+
 const { section, prev, next } = Astro.props as SectionViewProps;
 ---
 <HubBackdrop />

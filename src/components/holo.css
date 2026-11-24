@@ -1,4 +1,6 @@
-/* Hub tiles. Also reused (holo-face only) by the teacher landing. */
+/* Holographic tiles and the home stage.
+   HomeStage uses the whole file. Teacher tiles reuse .holo-face and the pieces inside it.
+   One source, imported by both. */
 
 .holo-home {
   position: relative;

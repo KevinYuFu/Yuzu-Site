@@ -1,4 +1,6 @@
-/* Main Hub backdrop (option B). Palette via custom properties. */
+/* Main Hub backdrop. Big type, rings, and grid behind the home, teacher, and software pages.
+   Also clears the home stage background so this layer shows through. */
+
 @import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@500;900&display=swap");
 .hb{--hb-bg:#07060d;--hb-line:rgba(200,210,255,.32);--hb-violet:#8b5cff;--hb-pink:#ff3fa4;--hb-cyan:#3fe6ff;--hb-txt:#cfd6ff;
   position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--hb-bg);pointer-events:none;font-family:"Space Mono",ui-monospace,monospace}
@@ -27,5 +29,3 @@
 .hb-vk{position:absolute;right:.6vw;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font:500 12px "Noto Sans JP",sans-serif;letter-spacing:.6em;color:var(--hb-pink);opacity:.75}
 @keyframes hb-spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.hb *{animation:none!important}}
-
-
