@@ -1,4 +1,8 @@
+/**
+ * Wiring for the Teacher page. The words are in ./content.
+ */
 import { defineSection } from '../../core/define';
+import { content } from './content';
 
 export const section = defineSection({
   id: 'teacher',
@@ -6,14 +10,14 @@ export const section = defineSection({
   order: 4,
   lane: 'identity',
   index: '04',
-  navLabel: 'Teacher',
-  title: 'Teacher',
-  mark: 'TEACHER',
-  kana: 'ティーチャー',
-  signal: 'SIG.EDU // ACADEMY.SYS',
-  description: 'Teaching: JSTDRMN Academy DJ Bootcamp and piano lessons.',
-  lede: 'JSTDRMN Academy DJ Bootcamp. Piano lessons.',
-  homeBlurb: 'DJ Bootcamp · piano',
+  navLabel: content.navLabel,
+  title: content.title,
+  mark: content.mark,
+  kana: content.kana,
+  signal: content.signal,
+  description: content.description,
+  lede: content.lede,
+  homeBlurb: content.homeBlurb,
   tile: {
     size: 'mid',
     col: 1,
@@ -21,12 +25,11 @@ export const section = defineSection({
     colSpan: 4,
     rowSpan: 3,
     code: 'MOD-04',
-    subtitle: 'DJ Bootcamp · piano',
-    status: 'JSTDRMN Academy',
+    subtitle: content.tile.subtitle,
+    status: content.tile.status,
     watermark: '04',
     icon: 'keys',
   },
-  // The landing page lives in TeacherView + teacher.data.ts.
   blocks: [],
 });
 
