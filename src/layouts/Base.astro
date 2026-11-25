@@ -43,7 +43,7 @@ const home = shell === 'home';
     {!home && <SiteHeader />}
     <slot />
     <script>
-      import { mountReveal } from '../scripts/reveal';
+      import { mountReveal } from './reveal';
       mountReveal();
     </script>
   </body>
