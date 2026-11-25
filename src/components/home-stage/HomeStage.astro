@@ -1,10 +1,10 @@
 ---
-import HoloTile from './holo/HoloTile.astro';
-import HubProfile from './hub/HubProfile.astro';
-import TextBit from './TextBit.astro';
-import { hubProfile } from '../content/profile';
-import { identity } from '../content/identity';
-import type { SectionModule } from '../core/types';
+import HoloTile from '../holo/HoloTile.astro';
+import HubProfile from '../hub/HubProfile.astro';
+import TextBit from '../text-bit/TextBit.astro';
+import { hubProfile } from '../../content/profile';
+import { identity } from '../../content/identity';
+import type { SectionModule } from '../../core/types';
 
 interface Props {
   sections: SectionModule[];
@@ -62,7 +62,7 @@ const { sections } = Astro.props;
 </main>
 
 <script>
-  import { mountHoloParallax } from './holo/holo-parallax';
+  import { mountHoloParallax } from '../holo/holo-parallax';
 
   const stage = document.querySelector<HTMLElement>('.holo-stage');
   if (stage) mountHoloParallax(stage);
