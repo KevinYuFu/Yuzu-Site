@@ -1,6 +1,6 @@
 /**
  * Yu's bio, copied word for word from the Yuzu EPK ("Yuzu Bio.docx").
- * The Producer (Yuzu) page shows `full`.
+ * The /yuzu page shows `full`.
  */
 const sentences = [
   'Yuzu (Toronto) makes high-energy game-inspired electronic music, and blends the genres of heavy bass music.',
