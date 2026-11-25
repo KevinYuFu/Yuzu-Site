@@ -26,7 +26,6 @@ export const section = defineSection({
     watermark: '04',
     icon: 'keys',
   },
-  source: 'docs/content/music-teaching.md',
   // The landing page lives in TeacherView + teacher.data.ts.
   blocks: [],
 });

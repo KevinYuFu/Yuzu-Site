@@ -28,7 +28,6 @@ export const section = defineSection({
     watermark: '05',
     icon: 'mark',
   },
-  source: 'docs/content/rivals.md',
   blocks: [
     {
       kind: 'copy',

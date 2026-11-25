@@ -29,7 +29,6 @@ export const section = defineSection({
     watermark: '07',
     icon: 'ping',
   },
-  source: 'docs/content/contact.md',
   blocks: [
     {
       kind: 'fields',

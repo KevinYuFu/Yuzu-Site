@@ -223,19 +223,6 @@
   margin-top: 1.5rem;
 }
 
-.source {
-  font-family: "Space Mono", monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #e0b0f8;
-}
-
-.source span {
-  color: #01faff;
-  margin-right: 0.4rem;
-}
-
 .pager {
   display: flex;
   justify-content: space-between;

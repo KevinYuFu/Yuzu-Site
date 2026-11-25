@@ -28,7 +28,6 @@ export const section = defineSection({
     watermark: '06',
     icon: 'id',
   },
-  source: 'docs/content/bio.md',
   blocks: [
     {
       kind: 'fields',
