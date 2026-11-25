@@ -4,7 +4,7 @@ import Base from '../../../layouts/Base.astro';
 import HubBackdrop from '../../../components/hub-backdrop/HubBackdrop.astro';
 import ProjectStub from '../../../modules/software/ProjectStub.astro';
 import { pageTitle } from '../../../content/identity';
-import { resume, type ResumeProject } from '../../../modules/software/resume.data';
+import { resume, type ResumeProject } from '../../../modules/software/content';
 
 export function getStaticPaths() {
   return resume.projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
