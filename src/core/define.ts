@@ -18,7 +18,6 @@ const required = [
   'description',
   'lede',
   'homeBlurb',
-  'source',
   'blocks',
   'tile',
 ] as const;

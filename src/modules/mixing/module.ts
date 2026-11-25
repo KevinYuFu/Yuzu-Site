@@ -28,7 +28,6 @@ export const section = defineSection({
     watermark: '03',
     icon: 'fader',
   },
-  source: 'no content file yet',
   blocks: [
     {
       kind: 'copy',

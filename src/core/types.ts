@@ -78,8 +78,6 @@ export interface SectionModule {
   homeBlurb: string;
   /** Floating menu tile on the home page. */
   tile: HomeTile;
-  /** Where the real copy should be written. */
-  source: string;
   blocks: Block[];
 }
 

@@ -29,7 +29,6 @@ export const section = defineSection({
     watermark: '07',
     icon: 'ping',
   },
-  source: 'content/contact.md',
   blocks: [
     {
       kind: 'fields',
@@ -52,7 +51,7 @@ export const section = defineSection({
     },
     {
       kind: 'note',
-      body: text('No contact form is wired up. content/contact.md still has that choice open, and this page does not submit anywhere.'),
+      body: text('No contact form is wired up. docs/content/contact.md still has that choice open, and this page does not submit anywhere.'),
     },
     {
       kind: 'fields',
