@@ -1,6 +1,10 @@
-import { gap, text } from '../../core/copy';
+/**
+ * Wiring for the Mixing page. The words are in ./content.
+ */
 import { defineSection } from '../../core/define';
-import { identity } from '../../content/identity';
+import { content } from './content';
+
+const { blocks } = content;
 
 export const section = defineSection({
   id: 'mixing',
@@ -8,14 +12,14 @@ export const section = defineSection({
   order: 3,
   lane: 'identity',
   index: '03',
-  navLabel: 'Mixing',
-  title: 'Mixing & Mastering',
-  mark: 'MASTER',
-  kana: 'マスタリング',
-  signal: 'SIG.MIX // MASTER.SYS',
-  description: `Mixing and mastering by ${identity.personalName}.`,
-  lede: 'Mixing and mastering. Services, credits, and rates are not filled in yet.',
-  homeBlurb: 'Mixing & mastering',
+  navLabel: content.navLabel,
+  title: content.title,
+  mark: content.mark,
+  kana: content.kana,
+  signal: content.signal,
+  description: content.description,
+  lede: content.lede,
+  homeBlurb: content.homeBlurb,
   tile: {
     size: 'mid',
     col: 8,
@@ -23,51 +27,35 @@ export const section = defineSection({
     colSpan: 5,
     rowSpan: 2,
     code: 'MOD-03',
-    subtitle: 'Mastering',
-    status: 'Mixing & mastering',
+    subtitle: content.tile.subtitle,
+    status: content.tile.status,
     watermark: '03',
     icon: 'fader',
   },
   blocks: [
     {
       kind: 'copy',
-      heading: 'Practice',
-      body: gap('what the mixing and mastering work covers'),
+      heading: blocks.practice.heading,
+      body: blocks.practice.body,
     },
     {
       kind: 'fields',
-      heading: 'Services',
-      items: [
-        { label: 'Offered', value: gap('services') },
-        { label: 'Turnaround', value: gap('turnaround') },
-        { label: 'Rates', value: gap('rates or "inquire"') },
-      ],
+      heading: blocks.services.heading,
+      items: blocks.services.items,
     },
     {
       kind: 'stack',
-      heading: 'Credits',
-      items: [
-        {
-          title: gap('credit or project'),
-          rows: [
-            { label: 'Client', value: gap('client') },
-            { label: 'Role', value: gap('mix, master, or both') },
-            { label: 'Link', value: gap('link') },
-          ],
-        },
-      ],
+      heading: blocks.credits.heading,
+      items: blocks.credits.items,
     },
     {
       kind: 'fields',
-      heading: 'Book',
-      items: [
-        { label: 'How to start', value: gap('how to start a project') },
-        { label: 'Email', value: gap('public email') },
-      ],
+      heading: blocks.book.heading,
+      items: blocks.book.items,
     },
     {
       kind: 'note',
-      body: text('No clients, credits, or prices are invented on this page.'),
+      body: blocks.note.body,
     },
   ],
 });
