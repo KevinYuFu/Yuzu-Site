@@ -1,21 +1,21 @@
-import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
-import { identity } from '../../content/identity';
+import { words } from './content';
 
+/** Rivals wiring: route, layout, and block kinds. Words live in content.ts. */
 export const section = defineSection({
   id: 'rivals',
   slug: 'rivals',
   order: 5,
   lane: 'identity',
   index: '05',
-  navLabel: 'Rivals',
-  title: 'Rivals',
-  mark: 'RIVALS',
-  kana: 'ライバルズ',
-  signal: 'SIG.EVT // RIVALS.SYS',
-  description: `Rivals, an event run by ${identity.personalName}.`,
-  lede: `An event run by ${identity.personalName}. What it is, when it happens, and how to join are not filled in yet.`,
-  homeBlurb: 'Event',
+  navLabel: words.navLabel,
+  title: words.title,
+  mark: words.mark,
+  kana: words.kana,
+  signal: words.signal,
+  description: words.description,
+  lede: words.lede,
+  homeBlurb: words.homeBlurb,
   tile: {
     size: 'mid',
     col: 5,
@@ -23,57 +23,45 @@ export const section = defineSection({
     colSpan: 4,
     rowSpan: 3,
     code: 'MOD-05',
-    subtitle: 'Event',
-    status: `Run by ${identity.personalName}`,
+    subtitle: words.tile.subtitle,
+    status: words.tile.status,
     watermark: '05',
     icon: 'mark',
   },
   blocks: [
     {
       kind: 'copy',
-      heading: 'What it is',
-      body: gap('elevator pitch, 2–3 sentences'),
+      heading: words.whatItIs.heading,
+      body: words.whatItIs.body,
     },
     {
       kind: 'copy',
-      heading: 'Why it exists',
-      body: gap('the story'),
+      heading: words.whyItExists.heading,
+      body: words.whyItExists.body,
     },
     {
       kind: 'copy',
-      heading: 'Format',
-      body: gap('what happens at the event'),
+      heading: words.format.heading,
+      body: words.format.body,
     },
     {
       kind: 'fields',
-      heading: 'When and where',
-      items: [
-        { label: 'Frequency', value: gap('one-off or recurring') },
-        { label: 'Next date', value: gap('next date') },
-        { label: 'Location', value: gap('venue') },
-      ],
+      heading: words.whenAndWhere.heading,
+      items: words.whenAndWhere.items,
     },
     {
       kind: 'fields',
-      heading: 'Get involved',
-      items: [
-        { label: 'Attend', value: gap('how to attend') },
-        { label: 'Compete', value: gap('how to participate') },
-        { label: 'Sponsor', value: gap('sponsor or partner') },
-        { label: 'Tickets', value: gap('tickets or signup link') },
-      ],
+      heading: words.getInvolved.heading,
+      items: words.getInvolved.items,
     },
     {
       kind: 'fields',
-      heading: 'Links',
-      items: [
-        { label: 'Instagram', value: gap('Instagram URL') },
-        { label: 'Other', value: gap('other link') },
-      ],
+      heading: words.links.heading,
+      items: words.links.items,
     },
     {
       kind: 'note',
-      body: text('No lineup, venue, date, or ticket price is shown until it is supplied.'),
+      body: words.untilSupplied.body,
     },
   ],
 });

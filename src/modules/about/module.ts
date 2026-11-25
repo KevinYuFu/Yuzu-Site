@@ -1,21 +1,21 @@
-import { gap, text } from '../../core/copy';
 import { defineSection } from '../../core/define';
-import { identity } from '../../content/identity';
+import { words } from './content';
 
+/** About wiring: route, layout, and block kinds. Words live in content.ts. */
 export const section = defineSection({
   id: 'about',
   slug: 'about',
   order: 6,
   lane: 'utility',
   index: '06',
-  navLabel: 'About',
-  title: 'About',
-  mark: 'ABOUT',
-  kana: 'プロフィール',
-  signal: 'SIG.BIO // YU.SYS',
-  description: `About ${identity.personalName}, artist name ${identity.artistName}.`,
-  lede: `${identity.personalName}. Artist name ${identity.artistName}.`,
-  homeBlurb: identity.personalName,
+  navLabel: words.navLabel,
+  title: words.title,
+  mark: words.mark,
+  kana: words.kana,
+  signal: words.signal,
+  description: words.description,
+  lede: words.lede,
+  homeBlurb: words.homeBlurb,
   tile: {
     size: 'small',
     col: 9,
@@ -23,45 +23,35 @@ export const section = defineSection({
     colSpan: 2,
     rowSpan: 3,
     code: 'MOD-06',
-    subtitle: identity.personalName,
-    status: `Artist name ${identity.artistName}`,
+    subtitle: words.tile.subtitle,
+    status: words.tile.status,
     watermark: '06',
     icon: 'id',
   },
   blocks: [
     {
       kind: 'fields',
-      heading: 'Name',
-      items: [
-        { label: 'Display name', value: text(identity.personalName) },
-        { label: 'Artist name', value: text(identity.artistName) },
-        { label: 'Tagline', value: gap('one-line tagline') },
-        { label: 'Based', value: text('Toronto') },
-      ],
+      heading: words.name.heading,
+      items: words.name.items,
     },
     {
       kind: 'copy',
-      heading: 'Who',
-      body: text(identity.mainBio),
+      heading: words.who.heading,
+      body: words.who.body,
     },
     {
       kind: 'copy',
-      heading: 'Values',
-      body: gap('what drives you'),
+      heading: words.values.heading,
+      body: words.values.body,
     },
     {
       kind: 'stack',
-      heading: 'Fun facts',
-      items: [
-        {
-          title: gap('fact'),
-          rows: [{ label: 'Detail', value: gap('detail') }],
-        },
-      ],
+      heading: words.funFacts.heading,
+      items: words.funFacts.items,
     },
     {
       kind: 'registry',
-      heading: 'Signals',
+      heading: words.signals.heading,
       lanes: ['identity'],
     },
   ],
