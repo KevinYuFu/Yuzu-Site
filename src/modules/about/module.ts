@@ -68,4 +68,4 @@ export const section = defineSection({
   ],
 });
 
-export { default as View } from '../../components/SectionView.astro';
+export { default as View } from '../../components/section/SectionView.astro';

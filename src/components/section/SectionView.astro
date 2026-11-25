@@ -1,11 +1,11 @@
 ---
-import GlitchTitle from './GlitchTitle.astro';
-import TextBit from './TextBit.astro';
-import HeroMeta from './section/HeroMeta.astro';
-import IndexBadge from './section/IndexBadge.astro';
-import Pager from './section/Pager.astro';
-import SectionPage from './section/SectionPage.astro';
-import type { Block, SectionModule, SectionViewProps } from '../core/types';
+import GlitchTitle from '../glitch-title/GlitchTitle.astro';
+import TextBit from '../text-bit/TextBit.astro';
+import HeroMeta from './HeroMeta.astro';
+import IndexBadge from './IndexBadge.astro';
+import Pager from './Pager.astro';
+import SectionPage from './SectionPage.astro';
+import type { Block, SectionModule, SectionViewProps } from '../../core/types';
 
 const { section, sections, prev, next } = Astro.props as SectionViewProps;
 const showSub = section.title.toLowerCase() !== section.mark.toLowerCase();
