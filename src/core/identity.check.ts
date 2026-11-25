@@ -23,7 +23,7 @@ export function assertIdentityModels(): void {
   same('hub name', hubProfile.name, identity.personalName);
   same('hub chinese name', hubProfile.chineseName.text, identity.chineseName.text);
   same('hub chinese lang', hubProfile.chineseName.lang, identity.chineseName.lang);
-  same('hub bio', hubProfile.excerpt, identity.mainBio);
+  same('hub bio', hubProfile.bio, identity.mainBio);
   same('hub alt', hubProfile.photo.alt, `${identity.personalName} sitting on a tall stool, in a black and white hoodie and cargo pants.`);
 
   same('artist label', producer.navLabel, identity.artistName);

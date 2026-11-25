@@ -11,7 +11,7 @@ export interface HubProfile {
   };
   name: string;
   chineseName: typeof identity.chineseName;
-  excerpt: string;
+  bio: string;
   /** Where the full bio lives. */
   bioHref: string;
 }
@@ -28,6 +28,6 @@ export const hubProfile: HubProfile = {
   },
   name: identity.personalName,
   chineseName: identity.chineseName,
-  excerpt: identity.mainBio,
+  bio: identity.mainBio,
   bioHref: '/about',
 };
