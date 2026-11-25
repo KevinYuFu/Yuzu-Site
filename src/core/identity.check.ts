@@ -5,7 +5,7 @@ import { section as mixing } from '../modules/mixing/module';
 import { section as yuzu } from '../modules/yuzu/module';
 import { section as rivals } from '../modules/rivals/module';
 import { section as software } from '../modules/software/module';
-import { resume } from '../modules/software/resume.data';
+import { resume } from '../modules/software/content';
 import { section as teacher } from '../modules/teacher/module';
 import type { Block, SectionModule } from './types';
 import { identity } from '../content/identity';

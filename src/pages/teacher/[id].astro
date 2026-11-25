@@ -1,9 +1,9 @@
 ---
-/* Teacher class detail. Generated from teacher.data.ts. */
+/* Teacher class detail. Generated from content.ts. */
 import Base from '../../layouts/Base.astro';
 import TeacherDetail from '../../modules/teacher/TeacherDetail.astro';
 import { identity, pageTitle } from '../../content/identity';
-import { teacher, type TeachTile } from '../../modules/teacher/teacher.data';
+import { teacher, type TeachTile } from '../../modules/teacher/content';
 
 export function getStaticPaths() {
   return teacher.tiles.map((tile) => ({ params: { id: tile.id }, props: { tile } }));
