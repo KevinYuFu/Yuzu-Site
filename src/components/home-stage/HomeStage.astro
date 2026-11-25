@@ -1,11 +1,11 @@
 ---
 import './HomeStage.css';
-import HoloTile from './holo/HoloTile.astro';
-import HubProfile from './hub/HubProfile.astro';
-import TextBit from './TextBit.astro';
-import { hubProfile } from '../content/profile';
-import { identity } from '../content/identity';
-import type { SectionModule } from '../core/types';
+import HoloTile from '../holo/HoloTile.astro';
+import HubProfile from '../hub/HubProfile.astro';
+import TextBit from '../text-bit/TextBit.astro';
+import { hubProfile } from '../../content/profile';
+import { identity } from '../../content/identity';
+import type { SectionModule } from '../../core/types';
 
 interface Props {
   sections: SectionModule[];

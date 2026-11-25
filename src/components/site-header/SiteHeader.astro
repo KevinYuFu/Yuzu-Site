@@ -1,8 +1,8 @@
 ---
 import './SiteHeader.css';
-import Chip from './chip/Chip.astro';
-import { composeSite } from '../core/compose';
-import { identity } from '../content/identity';
+import Chip from '../chip/Chip.astro';
+import { composeSite } from '../../core/compose';
+import { identity } from '../../content/identity';
 
 const site = composeSite();
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';

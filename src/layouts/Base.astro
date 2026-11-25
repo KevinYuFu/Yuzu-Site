@@ -1,11 +1,11 @@
 ---
 import '../styles/theme.css';
-import HudFrame from '../components/HudFrame.astro';
-import Scanlines from '../components/Scanlines.astro';
-import SignalField from '../components/SignalField.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import SkipLink from '../components/SkipLink.astro';
-import Vignette from '../components/Vignette.astro';
+import HudFrame from '../components/hud-frame/HudFrame.astro';
+import Scanlines from '../components/scanlines/Scanlines.astro';
+import SignalField from '../components/signal-field/SignalField.astro';
+import SiteHeader from '../components/site-header/SiteHeader.astro';
+import SkipLink from '../components/skip-link/SkipLink.astro';
+import Vignette from '../components/vignette/Vignette.astro';
 import { homeDescription, pageTitle } from '../content/identity';
 
 interface Props {
@@ -43,7 +43,7 @@ const home = shell === 'home';
     {!home && <SiteHeader />}
     <slot />
     <script>
-      import { mountReveal } from '../scripts/reveal';
+      import { mountReveal } from './reveal';
       mountReveal();
     </script>
   </body>

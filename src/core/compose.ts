@@ -1,4 +1,4 @@
-import DefaultView from '../components/SectionView.astro';
+import DefaultView from '../components/section/SectionView.astro';
 import { assertIdentityModels } from './identity.check';
 import type { SectionModule, SectionViewComponent } from './types';
 import { HOME_GRID } from './types';
