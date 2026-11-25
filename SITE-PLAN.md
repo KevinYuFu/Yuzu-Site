@@ -29,7 +29,7 @@ Identities, in registry order:
 5. **Rivals** — the event Yu runs.
 
 About and Contact are utility pages in the same registry. `/music` redirects to
-`/teacher`. `/artist` redirects to `/producer`.
+`/teacher`. `/producer` and `/artist` redirect to `/yuzu`.
 
 Architecture: `src/core/compose.ts` is the composition root. It loads every
 `src/modules/<id>/module.ts`. A module exports its metadata, route, blocks, and view.

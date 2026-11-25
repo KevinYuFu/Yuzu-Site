@@ -2,7 +2,7 @@ import { hubProfile } from '../content/profile';
 import { section as about } from '../modules/about/module';
 import { section as contact } from '../modules/contact/module';
 import { section as mixing } from '../modules/mixing/module';
-import { section as producer } from '../modules/producer/module';
+import { section as yuzu } from '../modules/yuzu/module';
 import { section as rivals } from '../modules/rivals/module';
 import { section as software } from '../modules/software/module';
 import { resume } from '../modules/software/resume.data';
@@ -26,13 +26,13 @@ export function assertIdentityModels(): void {
   same('hub bio', hubProfile.bio, identity.mainBio);
   same('hub alt', hubProfile.photo.alt, `${identity.personalName} sitting on a tall stool, in a black and white hoodie and cargo pants.`);
 
-  same('artist label', producer.navLabel, identity.artistName);
-  same('artist title', producer.title, identity.artistName);
-  same('artist mark', producer.mark, identity.artistMark);
-  same('artist kana', producer.kana, identity.chineseName.text);
-  same('artist kana lang', producer.kanaLang, identity.chineseName.lang);
-  same('artist signal', producer.signal, `SIG.AUD // ${identity.artistMark}.SYS`);
-  same('artist bio', copyBody(producer, 'About'), identity.artistBio);
+  same('artist label', yuzu.navLabel, identity.artistName);
+  same('artist title', yuzu.title, identity.artistName);
+  same('artist mark', yuzu.mark, identity.artistMark);
+  same('artist kana', yuzu.kana, identity.chineseName.text);
+  same('artist kana lang', yuzu.kanaLang, identity.chineseName.lang);
+  same('artist signal', yuzu.signal, `SIG.AUD // ${identity.artistMark}.SYS`);
+  same('artist bio', copyBody(yuzu, 'About'), identity.artistBio);
 
   same('about personal name', fieldValue(about, 'Name', 'Display name'), identity.personalName);
   same('about artist name', fieldValue(about, 'Name', 'Artist name'), identity.artistName);

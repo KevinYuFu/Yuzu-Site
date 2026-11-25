@@ -21,7 +21,7 @@ four identities: Software Engineer, Music Teacher, Rivals (event), DJ/Artist.
 ## Current status
 Slice 3 in review: neo-Tokyo glitch redesign on top of the Astro + Tailwind scaffold.
 Home is a holographic tile menu (Arknights-style cluster). Sections are plugins under `src/modules/`,
-composed by `src/core/compose.ts`: software, producer, mixing, teacher, rivals, about,
+composed by `src/core/compose.ts`: software, yuzu, mixing, teacher, rivals, about,
 contact. `content/` is still unfilled — pages show `[placeholder]`s. Still to do: real
 copy, GitHub + Cloudflare accounts, and a domain. Do not deploy from this slice.
 
@@ -34,5 +34,5 @@ copy, GitHub + Cloudflare accounts, and a domain. Do not deploy from this slice.
 - `content/*.md` — fill-in templates for site content.
 - `src/core/compose.ts` — composition root. Loads `src/modules/*/module.ts`.
 - `src/modules/<id>/` — one folder per section (metadata, route, view).
-- `src/pages/` — `index` (home) and `[slug]` (every registered section). `/music` → `/teacher`, `/artist` → `/producer`.
+- `src/pages/` — `index` (home) and `[slug]` (every registered section). `/music` → `/teacher`. `/producer` and `/artist` → `/yuzu`.
 - `src/layouts/Base.astro` — shared `<head>`, HUD chrome, Tailwind import.

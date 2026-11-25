@@ -3,8 +3,8 @@ import { defineSection } from '../../core/define';
 import { identity } from '../../content/identity';
 
 export const section = defineSection({
-  id: 'producer',
-  slug: 'producer',
+  id: 'yuzu',
+  slug: 'yuzu',
   order: 2,
   lane: 'identity',
   index: '02',
