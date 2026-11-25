@@ -96,8 +96,11 @@
       max-width: 100%;
     }
 
+    /* Column flex: align-self:end sizes from content, and inline-size
+       containment reports that content width as 0. Give a real width. */
     .hub-bio {
-      width: auto;
+      width: 100%;
+      align-self: stretch;
     }
 
     .hub-bio-slot {
