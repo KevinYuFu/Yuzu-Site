@@ -1,7 +1,7 @@
 ---
 /* One glass tile.
    Pass `grid` for a home menu cell. Leave it off for the teacher face link.
-   Also loads the home-stage styles that wrap these tiles. */
+   The script below mounts stage parallax once for whatever page uses this tile. */
 import './HoloTile.css';
 import HoloIcon from './HoloIcon.astro';
 import type { TileIcon } from '../../core/types';
@@ -64,3 +64,12 @@ const {
     </a>
   )
 }
+
+<script>
+  import { mountHoloParallax } from './holo-parallax';
+
+  // Astro includes this script once per page. The guard in mountHoloParallax
+  // ignores a second call, so several tiles still share one stage listener.
+  const stage = document.querySelector<HTMLElement>('.holo-stage');
+  if (stage) mountHoloParallax(stage);
+</script>
