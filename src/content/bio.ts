@@ -10,7 +10,6 @@ const sentences = [
 ];
 
 export const bio = {
-  excerpt: sentences.slice(0, 2).join(' '),
   full: sentences.join(' '),
 };
 
