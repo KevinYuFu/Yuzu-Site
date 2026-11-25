@@ -29,7 +29,7 @@ export const section = defineSection({
     watermark: '02',
     icon: 'wave',
   },
-  source: 'content/dj-artist.md',
+  source: 'docs/content/dj-artist.md',
   blocks: [
     {
       kind: 'copy',

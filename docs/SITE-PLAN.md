@@ -40,7 +40,7 @@ Visual language is the saved datamosh / neo-Tokyo title loops: `#121212` field,
 + Dela Gothic One + Noto Sans JP + Space Mono, HUD chrome (信号異常, 未来信号, scanlines).
 Motion is CSS plus one small canvas, and it shuts off under `prefers-reduced-motion`.
 
-`content/*.md` is still unfilled. Pages use `[placeholder]` for anything that is not
+`docs/content/*.md` is still unfilled. Pages use `[placeholder]` for anything that is not
 a supplied fact. Do not invent bio, credits, clients, release names, or prices.
 
 ## Design direction
@@ -57,7 +57,7 @@ Modern, interactive, alive — not a static brochure.
 | Framework | **Astro** (static shell + interactive islands) |
 | Styling | **Tailwind CSS** |
 | Animation | Scroll-reveal + motion via islands (GSAP / Framer Motion — TBD at build) |
-| Content | **Markdown** files in `content/` (what you fill out) |
+| Content | **Markdown** files in `docs/content/` (what you fill out) |
 | Source of truth | **GitHub repo** |
 | Hosting | **Cloudflare Pages** (auto-deploy on push) |
 | Domain | TBD — buy before launch (~$10/yr) |
@@ -68,8 +68,8 @@ Modern, interactive, alive — not a static brochure.
 - Drive is for *collecting*; GitHub is for *publishing*.
 
 ## What Kevin needs to do
-- [ ] Fill out the templates in `content/` (in any order).
-- [ ] Drop assets in a Google Drive folder and share it (see `content/assets-needed.md`).
+- [ ] Fill out the templates in `docs/content/` (in any order).
+- [ ] Drop assets in a Google Drive folder and share it (see `docs/content/assets-needed.md`).
 - [ ] Create a free **GitHub** account (I'll guide the exact steps).
 - [ ] Create a free **Cloudflare** account (for hosting, later).
 - [ ] Pick & buy a **domain** (we'll brainstorm before launch).
