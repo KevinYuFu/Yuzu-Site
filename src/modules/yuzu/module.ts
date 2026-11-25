@@ -1,6 +1,11 @@
-import { gap, text } from '../../core/copy';
+/**
+ * Wiring for the artist page. The words are in ./content.
+ */
 import { defineSection } from '../../core/define';
 import { identity } from '../../content/identity';
+import { content } from './content';
+
+const { blocks } = content;
 
 export const section = defineSection({
   id: 'yuzu',
@@ -8,15 +13,15 @@ export const section = defineSection({
   order: 2,
   lane: 'identity',
   index: '02',
-  navLabel: identity.artistName,
-  title: identity.artistName,
-  mark: identity.artistMark,
-  kana: identity.chineseName.text,
+  navLabel: content.navLabel,
+  title: content.title,
+  mark: content.mark,
+  kana: content.kana,
   kanaLang: identity.chineseName.lang,
-  signal: `SIG.AUD // ${identity.artistMark}.SYS`,
-  description: `${identity.artistName} — hyperbass, hyperpop vocals, bass music, and J-pop chords.`,
-  lede: 'Artist',
-  homeBlurb: 'Hyperbass · hyperpop · J-pop chords',
+  signal: content.signal,
+  description: content.description,
+  lede: content.lede,
+  homeBlurb: content.homeBlurb,
   tile: {
     size: 'mid',
     col: 8,
@@ -24,58 +29,40 @@ export const section = defineSection({
     colSpan: 5,
     rowSpan: 3,
     code: 'MOD-02',
-    subtitle: 'Artist',
-    status: 'Bass music · J-pop chords',
+    subtitle: content.tile.subtitle,
+    status: content.tile.status,
     watermark: '02',
     icon: 'wave',
   },
   blocks: [
     {
       kind: 'copy',
-      heading: 'About',
-      body: text(identity.artistBio),
+      heading: blocks.about.heading,
+      body: blocks.about.body,
     },
     {
       kind: 'copy',
-      heading: 'Sound',
-      body: text('Hyperbass, hyperpop vocals, bass music, J-pop chords.'),
+      heading: blocks.sound.heading,
+      body: blocks.sound.body,
     },
     {
       kind: 'fields',
-      heading: 'Listen',
-      items: [
-        { label: 'SoundCloud', value: gap('SoundCloud URL') },
-        { label: 'Mixcloud', value: gap('Mixcloud URL') },
-        { label: 'Spotify', value: gap('Spotify URL') },
-        { label: 'YouTube', value: gap('YouTube URL') },
-        { label: 'Instagram', value: gap('Instagram URL') },
-      ],
+      heading: blocks.listen.heading,
+      items: blocks.listen.items,
     },
     {
       kind: 'stack',
-      heading: 'Releases',
-      items: [
-        {
-          title: gap('release title'),
-          rows: [
-            { label: 'What it is', value: gap('release, mix, or set') },
-            { label: 'Link', value: gap('link') },
-          ],
-        },
-      ],
+      heading: blocks.releases.heading,
+      items: blocks.releases.items,
     },
     {
       kind: 'fields',
-      heading: 'Bookings',
-      items: [
-        { label: 'Available for', value: gap('what to book') },
-        { label: 'How to book', value: gap('how to book') },
-        { label: 'Past venues', value: gap('venues or events') },
-      ],
+      heading: blocks.bookings.heading,
+      items: blocks.bookings.items,
     },
     {
       kind: 'note',
-      body: text('No release titles, credits, or venues are shown until they are supplied.'),
+      body: blocks.note.body,
     },
   ],
 });
