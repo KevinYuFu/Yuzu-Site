@@ -1,4 +1,5 @@
 ---
+import './HomeStage.css';
 import HoloTile from './holo/HoloTile.astro';
 import HubProfile from './hub/HubProfile.astro';
 import TextBit from './TextBit.astro';
@@ -60,10 +61,3 @@ const { sections } = Astro.props;
     </div>
   </div>
 </main>
-
-<script>
-  import { mountHoloParallax } from './holo/holo-parallax';
-
-  const stage = document.querySelector<HTMLElement>('.holo-stage');
-  if (stage) mountHoloParallax(stage);
-</script>

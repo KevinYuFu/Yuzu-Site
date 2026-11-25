@@ -1,113 +1,6 @@
-/* Holographic tiles, and the home stage they sit on.
+/* Holographic tile face and grid cell.
    HoloTile.astro is the only file that imports this.
    Home uses the grid slot. Teacher uses the glass face. */
-
-.holo-home {
-  position: relative;
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  height: 100dvh;
-  min-height: 100vh;
-  min-height: 100dvh;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at 72% 42%, rgba(40, 110, 150, 0.16), transparent 52%),
-    #07090d;
-}
-
-.holo-home::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(rgba(150, 200, 220, 0.09) 1px, transparent 1px);
-  background-size: 26px 26px;
-  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 78%);
-}
-
-.holo-bar {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: baseline;
-  gap: 0.85rem 1.1rem;
-  flex: none;
-  padding: 0.75rem 1.25rem 0.15rem;
-}
-
-.holo-brand {
-  margin: 0;
-  font-family: "Unbounded", sans-serif;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-  font-size: 1.15rem;
-  color: #f4fbff;
-  text-shadow: 0 0 14px rgba(120, 220, 255, 0.45);
-}
-
-.holo-who {
-  margin: 0;
-  font-family: "Space Mono", monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #d7f4ff;
-}
-
-.holo-tag {
-  margin: 0;
-}
-
-.holo-bar-code {
-  margin: 0 0 0 auto;
-  font-family: "Space Mono", monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  color: rgba(170, 230, 255, 0.75);
-}
-
-.holo-stage {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  min-height: 0;
-  display: grid;
-  grid-template-columns: minmax(220px, 23vw) minmax(0, 1fr);
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "photo bio"
-    "photo menu";
-  align-content: center;
-  column-gap: clamp(1.5rem, 4vw, 4rem);
-  row-gap: clamp(1.25rem, 3.5vh, 2.5rem);
-  padding: 0.5rem clamp(1.5rem, 4vw, 4rem) 1.05rem clamp(2rem, 6vw, 6rem);
-  perspective: 1800px;
-}
-
-/* Sizing box for the menu; tile type scales with its width (cqw). */
-.holo-menu {
-  grid-area: menu;
-  min-width: 0;
-  width: min(100%, 93vh);
-  justify-self: end;
-  container-type: inline-size;
-}
-
-.holo-cluster {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-rows: repeat(8, minmax(0, 1fr));
-  gap: 1.15rem;
-  width: 100%;
-  /* Keeps the menu's original shape; the open space around it is on purpose. */
-  height: 60cqw;
-  min-height: 0;
-  transform: rotateX(6deg) rotateY(-8deg) scale(0.94);
-  transform-style: preserve-3d;
-  transform-origin: 46% 42%;
-}
 
 .holo-slot {
   grid-column: var(--col) / span var(--cs);
@@ -358,10 +251,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .holo-cluster {
-    transform: none;
-  }
-
   .holo-slot.is-hot .holo-face,
   .holo-slot:hover .holo-face,
   .holo-slot:focus-visible .holo-face {
@@ -384,42 +273,6 @@
 }
 
 @media (max-width: 800px) {
-  .holo-home {
-    height: auto;
-    max-height: none;
-    overflow: visible;
-  }
-
-  .holo-bar {
-    flex-wrap: wrap;
-    padding: 0.7rem 0.85rem 0.2rem;
-  }
-
-  .holo-tag {
-    flex: 1 1 100%;
-  }
-
-  .holo-bar-code {
-    margin-left: 0;
-  }
-
-  .holo-stage {
-    flex: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    perspective: none;
-    padding: 0.45rem 0.75rem 1.2rem;
-  }
-
-  .holo-cluster {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    gap: 0.75rem;
-    transform: none;
-  }
-
   .holo-slot {
     min-height: 32vh;
   }
